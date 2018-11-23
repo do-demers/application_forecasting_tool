@@ -1,0 +1,143 @@
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#btn_div {
+    text-align: right;
+}
+
+#container {
+    display: flex; /* or inline-flex */
+    flex-direction: row
+}
+
+#num_div{
+    display: flex; /* or inline-flex */
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+}
+
+#IC_div{
+    font: 300 100px/100px "Helvetica Neue";
+    text-align: center;
+    width: 900px;
+    height: 300px;
+    margin: 0;
+    /*align-self: flex-end;*/
+}
+
+#font_intro{
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#font_appl{
+    font-size: 40px;
+}
+
+
+#app_div{
+    text-align: center;
+    font-size:15px;
+}
+
+#choice_div{
+    display: flex; /* or inline-flex */
+    flex-direction: column ;
+}
+
+#select_div{
+    display: flex; /* or inline-flex */
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+}
+
+.select_class{
+    align-self: center;
+    margin: auto;
+    width: 120px;
+}
+
+
+#link_div{
+    display: flex; /* or inline-flex */
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    max-width:300px;
+    text-align: center;
+    flex-wrap: wrap
+}
+
+.link_head{
+    border-bottom:1px solid black;
+}
+
+.link_text{
+    font-size: 13px;
+    width: 100%
+}
+
+
+/*.adv_tbl {*/
+    /*font-family: Helvetica, Arial, sans-serif;*/
+    /*border-collapse: collapse;*/
+    /*width: 100%;*/
+    /*align-self: center;*/
+    /*margin: auto;*/
+
+/*}*/
+
+/*.adv_tbl tbody {*/
+    /*height: 100px;*/
+    /*overflow-y: auto;*/
+/*}*/
+
+/*.adv_tbl th {*/
+    /*border: 1px solid #ddd;*/
+    /*padding: 8px;*/
+    /*font-family: Helvetica, Arial, sans-serif;*/
+    /*text-align: center;*/
+    /*padding-top: 12px;*/
+    /*padding-bottom: 12px;*/
+    /*background-color: rgb(40, 65, 98);*/
+    /*color: white;*/
+    /*font-weight:normal;*/
+
+/*}*/
+
+/*.adv_tbl td{*/
+    /*border: 1px solid #ddd;*/
+    /*padding: 8px;*/
+    /*font-family: Helvetica, Arial, sans-serif;*/
+    /*text-align: center;*/
+/*}*/
+
+
+/*.adv_tbl tr:nth-child(even){background-color: #f2f2f2;}*/
+
+/*.adv_tbl tr:hover {background-color: #ddd;}*/
+
+#sel_lbl{
+    font-weight: normal;
+}
+
+.stats_class{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 20px;
+}
+
+
+

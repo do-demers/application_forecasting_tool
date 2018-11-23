@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{d3.v5}" />
+    <file url="file://$PROJECT_DIR$/javascript/dropbox.js" libraries="{underscore}" />
+    <file url="file://$PROJECT_DIR$/javascript/load_data.js" libraries="{underscore}" />
+    <file url="file://$PROJECT_DIR$/javascript/load_data_fr.js" libraries="{d3.v4}" />
+    <file url="file://$PROJECT_DIR$/javascript/table.js" libraries="{d3.v4, underscore}" />
+    <file url="file://$PROJECT_DIR$/javascript/table_fr.js" libraries="{d3.v4}" />
+    <file url="file://$PROJECT_DIR$/javascript/viz.js" libraries="{d3.v4, underscore}" />
+  </component>
+</project>
