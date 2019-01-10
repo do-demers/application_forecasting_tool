@@ -57,7 +57,7 @@ dispatch.on("load_tbl.table", function (tbl_data) {
 
         $('#adv_tbl').DataTable({
             "paging": true,
-            "searching": true
+            "searching": false
         });
 
 
@@ -108,7 +108,7 @@ dispatch.on("load_tbl.table", function (tbl_data) {
 
         $('#adv_tbl').DataTable({
             "paging": true,
-            "searching": true
+            "searching": false
         });
 
         var table_max =  _.isEmpty(_.pluck(d, "applications")) ? 0 : _.max(_.pluck(d, "applications")) ;

@@ -1,6 +1,7 @@
 // File to laod text parameters in the program
 //This is here that the code will detect if we are on the french or english page
 
+console.log("Language of Page:")
 console.log(document.documentElement.lang)
 
 if (document.documentElement.lang === "en") {
