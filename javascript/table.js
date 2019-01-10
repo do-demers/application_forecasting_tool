@@ -1,14 +1,13 @@
 
 dispatch.on("load_tbl.table", function (tbl_data) {
 
-    var headers = ["Organization", "Group", "Level", "Language", "Region", "Number of Positions", "Internal Process", "Process Number","Title", "Close Date", "Number of Applications"];
-
-    var columns = _.without(data.columns,"predicted","upper","lower","Dept_Code", "Department_F", "Adv_Name_F", "_TYPE_", "url");
+    var columns = _.without(data.columns,"predicted","upper","lower","Dept_Code", "_TYPE_", "url");
 
     var table = d3.select('#tbl_div')
             .append('table')
-            .attr("class","table table-striped");
-
+            .attr("id", "adv_tbl")
+            // .attr("class","table table-striped")
+            .attr("class","table table-striped table-hover")
 
     var thead = table.append('thead');
 
@@ -37,7 +36,6 @@ dispatch.on("load_tbl.table", function (tbl_data) {
     rows_grp_enter.merge(rows_grp);
 
     // create a cell in each row for each column
-
     rows_grp_enter
             .selectAll('td')
             .data(function (row) {
@@ -57,11 +55,20 @@ dispatch.on("load_tbl.table", function (tbl_data) {
                 }
             });
 
+        $('#adv_tbl').DataTable({
+            "paging": true,
+            "searching": true
+        });
+
+
     dispatch.on("tbl_change.table", function (d) {
+
+
+        $('#adv_tbl').DataTable().destroy();
 
         var sorted_data = _.sortBy(d, 'applications');
 
-        var columns = _.without(data.columns,"predicted","upper","lower","Dept_Code", "Department_F", "Adv_Name_F", "_TYPE_","url");
+        var columns = _.without(data.columns,"predicted","upper","lower","Dept_Code", "_TYPE_","url");
 
         var table_u = d3.select('table')
 
@@ -98,32 +105,50 @@ dispatch.on("load_tbl.table", function (tbl_data) {
             }
         });
 
+
+        $('#adv_tbl').DataTable({
+            "paging": true,
+            "searching": true
+        });
+
         var table_max =  _.isEmpty(_.pluck(d, "applications")) ? 0 : _.max(_.pluck(d, "applications")) ;
         var table_min = _.isEmpty(_.pluck(d, "applications")) ? 0 : _.min(_.pluck(d, "applications")) ;
 
-        //Update descriptive Stats
-        d3.select("#min_div")
-            .text("Minimum (actual): " + table_min);
+        //Update descriptive Stats FR and EN dependant
+        if (document.documentElement.lang == "en"){
+            //Update descriptive Stats
+            d3.select("#min_div")
+                .text("Minimum (actual): " + table_min);
 
-        d3.select("#max_div")
-            .text("Maximum (actual): " + table_max);
+            d3.select("#max_div")
+                .text("Maximum (actual): " + table_max);
+
+        }else{
+            //Update descriptive Stats
+            d3.select("#min_div")
+                .text("Minimum (réel): " + table_min);
+
+            d3.select("#max_div")
+                .text("Maximum (réel): " + table_max);
+
+        }
 
         d3.select("#exp_data")
             .on("click", function() {
 
-                var csv_headers = ["Organization", "Group", "Level", "Language", "Region", "Number of Positions", "Internal Process", "Process Number","Title", "Close Date", "Number of Applications", "url"];
+                var csv_headers = _.union(headers, ["url"]);
 
-                let csvContent = "";
+                var csvContent = "";
 
                 csvContent += csv_headers.join(",") + "\r\n";
 
-                let csv_data = _.map(d, function(row){
+                var csv_data = _.map(d, function(row){
                     temp_var = _.pick(row, columns, "url");
                     return temp_var
                 });
 
                 _.map(csv_data, function(row){
-                    let row_array = _.map(row, function(x){
+                    var row_array = _.map(row, function(x){
                         return "\"" + x +"\"";
                     }).join(",");
                     csvContent += row_array + "\r\n";

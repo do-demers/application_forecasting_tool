@@ -16,9 +16,10 @@ dispatch.on("load_choice", function (data) {
               var var_list = _.uniq(_.pluck(sel_data, variable)).sort();
         }
 
-        if (variable === "Department_E"){
-            var_list = _.without(var_list, "All departments");
-            var_list.unshift("All departments")
+        if (variable === "Department"){
+
+            var_list = _.without(var_list, all_depts_var);
+            var_list.unshift(all_depts_var)
 
         }
 
@@ -47,13 +48,24 @@ dispatch.on("load_choice", function (data) {
         var_select.property("value", start_var);
     };
 
-    drop_box(data, "Department_E", "_dept", start_dept, "Organization:");
-    drop_box(data, "Class_Group", "_grp", start_grp, "Group:");
-    drop_box(data, "Class_Lvl", "_lvl", start_lvl, "Level:");
-    drop_box(data, "Language", "_lang", start_lang, "Language:");
-    drop_box(data, "Region_NCR", "_reg", start_reg, "Work Location:");
-    drop_box(data, "one_position", "_one", start_one, "Positions:");
-    drop_box(data, "int_process", "_int", start_int, "Area of selection:");
+    //Modify for FR and EN
+    if (document.documentElement.lang == "en") {
+        drop_box(data, "Department", "_dept", start_dept, "Organization:");
+        drop_box(data, "Class_Group", "_grp", start_grp, "Group:");
+        drop_box(data, "Class_Lvl", "_lvl", start_lvl, "Level:");
+        drop_box(data, "Language", "_lang", start_lang, "Language:");
+        drop_box(data, "Region_NCR", "_reg", start_reg, "Work Location:");
+        drop_box(data, "one_position", "_one", start_one, "Positions:");
+        drop_box(data, "int_process", "_int", start_int, "Area of selection:");
+    }else {
+        drop_box(data, "Department", "_dept", start_dept, "Organisation:");
+        drop_box(data, "Class_Group", "_grp", start_grp, "Groupe:");
+        drop_box(data, "Class_Lvl", "_lvl", start_lvl, "Niveau:");
+        drop_box(data, "Language", "_lang", start_lang, "Langue:");
+        drop_box(data, "Region_NCR", "_reg", start_reg, "Lieu de travail:");
+        drop_box(data, "one_position", "_one", start_one, "Nombre de postes:");
+        drop_box(data, "int_process", "_int", start_int, "Zone de sélection:");
+    }
 
 
     dispatch.on("state_change", function (filter_data) {
@@ -105,26 +117,24 @@ dispatch.on("load_choice", function (data) {
                 current_lvl = d3.select("#select_lvl").property("value");
 
             }else{
-
-                // d3.select("#select_lvl").property("value", new_var_list[0]);
                 current_lvl = d3.select("#select_lvl").property("value");
-
             }
         }
 
+
          var new_tbl_data = _.filter(data, function (row, i) {
-            return (current_dept === "All departments" ? row.Department_E !== "All departments" : _.contains([row.Department_E], current_dept))
+            return (current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
                 && _.contains([row.Class_Group], current_group)
                 && _.contains([row.Class_Lvl], current_lvl)
-                &&  (current_lang === "Any language requirements" ? row.Language !== "Any language requirements" : _.contains([row.Language], current_lang))
-                &&  (current_reg === "All work locations" ? row.Region_NCR !== "All work locations" : _.contains([row.Region_NCR], current_reg))
+                &&  (current_lang === all_lang_var ? row.Language !== all_lang_var : _.contains([row.Language], current_lang))
+                &&  (current_reg === all_reg_var ? row.Region_NCR !== all_reg_var : _.contains([row.Region_NCR], current_reg))
                 && _.contains([row.one_position], current_one)
                 && _.contains([row.int_process], current_int);
         });
 
         var new_pred_data = _.filter(data, function (row, i) {
 
-            return _.contains([row.Department_E], current_dept)
+            return _.contains([row.Department], current_dept)
                 && _.contains([row.Class_Group], current_group)
                 && _.contains([row.Class_Lvl], current_lvl)
                 && _.contains([row.Language], current_lang)
@@ -142,7 +152,7 @@ dispatch.on("load_choice", function (data) {
 
         var accuracy = in_interval.length / obs_data.length;
 
-        dispatch.call("viz_change", this, new_pred_data);
+        dispatch.call("viz_change", this, new_pred_data, new_tbl_data);
         dispatch.call("tbl_change", this, new_tbl_data);
     });
 });

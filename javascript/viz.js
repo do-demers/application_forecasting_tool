@@ -51,7 +51,6 @@ dispatch.on("load_viz.bar", function (viz_data) {
             .attr("y", yScale(pred_value))
             .attr("height", yScale(0) - yScale(pred_value));
 
-
     });
 });
 
@@ -63,12 +62,17 @@ dispatch.on("load_viz.numbers", function (viz_data) {
                 return "1" + " - " + "2";
             });
 
-    dispatch.on("viz_change.numbers", function (d) {
+    dispatch.on("viz_change.numbers", function (d, tbl_data) {
 
         var num_data = _.uniq(d, 'predicted', "lower", "upper");
 
         var new_low = _.pluck(num_data, "lower");
         var new_high = _.pluck(num_data, "upper");
+
+        // to modify
+        if(tbl_data.length < 10) {
+            d3.select('#low_response').style('display','block')
+        }
 
 
         numbers.transition()
@@ -78,29 +82,56 @@ dispatch.on("load_viz.numbers", function (viz_data) {
                 var format = d3.format("d");
                 var that = d3.select(this);
 
-                var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
-                    return +v;
-                });
+                if (document.documentElement.lang === "en") {
+                    var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                        return +v;
+                    });
+                }else {
+                    var temp = (that.node().innerHTML = "Aucune données") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                        return +v;
+                    });
+                }
 
                 var i = d3.interpolateNumber(temp[0], new_low);
 
                 var j = d3.interpolateNumber(temp[1], new_high);
 
-                var text_fct = _.isEmpty(d) ? function (t) {
-                    that
-                        .html("No data")
-                        .style("align-self", "flex-end")
-                        .attr("height", "300px")
+                if (document.documentElement.lang === "en") {
+                    var text_fct = _.isEmpty(d) ? function (t) {
+
+                        that
+                            .html("No data")
+                            .style("align-self", "flex-end")
+                            .attr("height", "300px")
                         ;
 
                     } : function (t) {
+
                         that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
                             + '</br>' + format(i(t)) + ' - ' + format(j(t))
                             + '</br>'
                             + '<span id="font_appl">applications</span>'
                         ).style("align-self", "unset");
-                    };
 
+                    };
+                }else{
+
+                    var text_fct = _.isEmpty(d) ? function (t) {
+                        that
+                            .html("Aucune données")
+                            .style("align-self", "flex-end")
+                            .attr("height", "300px");
+
+                    } : function (t) {
+
+                        that.html('<span id="font_intro">Pour les caractéristiques ci-dessus, on estime que vous recevrez entre</span>'
+                            + '</br>' + format(i(t)) + ' - ' + format(j(t))
+                            + '</br>'
+                            + '<span id="font_appl">candidatures</span>'
+                        ).style("align-self", "unset");
+
+                    };
+                }
             return text_fct;
         });
     });

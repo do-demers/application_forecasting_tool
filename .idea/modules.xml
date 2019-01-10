@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/appl_predictor.iml" filepath="$PROJECT_DIR$/.idea/appl_predictor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/application_forecasting_tool.iml" filepath="$PROJECT_DIR$/.idea/application_forecasting_tool.iml" />
     </modules>
   </component>
 </project>

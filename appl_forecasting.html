@@ -247,6 +247,7 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
 	<div id="container">
 		<svg></svg>
 		<div id="num_div">
+            <div id="low_response" class="alert alert-warning" style="display:none">less than 10 observations, please use estimates with caution</div>
 			<div id="IC_div"></div>
 		</div>
 
@@ -269,11 +270,12 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
             <div id="min_div" > Minimum: 55 </div>
             <div id="max_div" > Maximum: 75 </div>
         </div>
-        <div id="btn_div">
+
+       <div id="btn_div">
              <a class="btn btn-primary" id="exp_data" href="#">Click here to Download</a>
         </div>
-        <div id="tbl_div">
-        </div>
+        <div id="tbl_div"></div>
+
        	</div>
 </div>
 
@@ -284,10 +286,14 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/temp_css.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="javascript/load_param.js"></script>
         <script src="javascript/load_data.js"></script>
         <script src="javascript/dropbox.js"></script>
         <script src="javascript/viz.js"></script>
         <script src="javascript/table.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
         <script>
 
 //            const rows = [["name1", "city1", "some other info"], ["name2", "city2", "more info"]];
