@@ -12,6 +12,9 @@ var start_int = "Processus Interne";
 // This will be assigned to rows, once the data is ready.
 var data = null;
 
+console.log(document.documentElement.lang)
+debugger;
+
 d3.csv("raw_data/final_raw_data_fr.csv")
     .row(function(d) {
         d.applications = +d.applications;
