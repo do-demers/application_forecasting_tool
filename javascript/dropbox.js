@@ -23,7 +23,21 @@ dispatch.on("load_choice", function (data) {
 
         }
 
-         var var_select = d3.select("#select_div")
+        // var var_select = d3.select("#select_div")
+        //     .append("label")
+        //     .attr("id", "sel_lbl")
+        //     .attr("for", "select" + prefix).text(label)
+        //     .append("select")
+        //     .attr("id", "in_" + prefix)
+        //     .attr("list", "select" + prefix)
+        //     .append("select")
+        //     .attr("id", "select" + prefix)
+        //     .attr("class", "select_class")
+        //     .on("change", function () {
+        //         dispatch.call("state_change", this, data);
+        //     });
+
+        var var_select = d3.select("#select_div")
             .append("label")
             .attr("id", "sel_lbl")
             .attr("for", "select" + prefix).text(label)

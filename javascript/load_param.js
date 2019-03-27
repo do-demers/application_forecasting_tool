@@ -45,3 +45,6 @@ if (document.documentElement.lang === "en") {
         "Numéro de processus", "Titre", "Date de fermeture","Nombre de candidatures"];
 
 }
+
+
+
