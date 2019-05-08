@@ -55,11 +55,10 @@ dispatch.on("load_tbl.table", function (tbl_data) {
                 }
             });
 
-        $('#adv_tbl').DataTable({
-            "paging": true,
-            "searching": false
-        });
-
+    $('#adv_tbl').DataTable({
+        "paging": true,
+         "searching": true,
+    });
 
     dispatch.on("tbl_change.table", function (d) {
 
@@ -108,7 +107,7 @@ dispatch.on("load_tbl.table", function (tbl_data) {
 
         $('#adv_tbl').DataTable({
             "paging": true,
-            "searching": false
+            "searching": true,
         });
 
         var table_max =  _.isEmpty(_.pluck(d, "applications")) ? 0 : _.max(_.pluck(d, "applications")) ;

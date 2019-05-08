@@ -15,12 +15,12 @@
 
 #container {
     display: flex; /* or inline-flex */
-    flex-direction: row
+    flex-direction: column;
 }
 
 #num_div{
     display: flex; /* or inline-flex */
-    flex-direction: column ;
+    flex-direction: row ;
     align-items: center;
     justify-content: center;
 }
