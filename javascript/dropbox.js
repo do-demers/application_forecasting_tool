@@ -1,7 +1,6 @@
 
 dispatch.on("load_choice", function (data) {
 
-
     var drop_box = function drop_box(sel_data, variable, prefix, start_var, label) {
 
         if (variable === "Class_Lvl"){
@@ -23,27 +22,18 @@ dispatch.on("load_choice", function (data) {
 
         }
 
-        // var var_select = d3.select("#select_div")
-        //     .append("label")
-        //     .attr("id", "sel_lbl")
-        //     .attr("for", "select" + prefix).text(label)
-        //     .append("select")
-        //     .attr("id", "in_" + prefix)
-        //     .attr("list", "select" + prefix)
-        //     .append("select")
-        //     .attr("id", "select" + prefix)
-        //     .attr("class", "select_class")
-        //     .on("change", function () {
-        //         dispatch.call("state_change", this, data);
-        //     });
-
         var var_select = d3.select("#select_div")
             .append("label")
             .attr("id", "sel_lbl")
-            .attr("for", "select" + prefix).text(label)
+            .attr("for", "select" + prefix)
+            .text(function(){
+                return label;
+            })
+            .style("width","100%")
             .append("select")
             .attr("id", "select" + prefix)
             .attr("class", "select_class")
+            .style("width","100%")
             .on("change", function () {
                 dispatch.call("state_change", this, data);
             });
@@ -55,9 +45,10 @@ dispatch.on("load_choice", function (data) {
             .append("option")
             .attr("value", function (d) {
                 return d;
-            }).text(function (d) {
-                return d;
             })
+            .text(function (d) {
+                return d;
+            });
 
         var_select.property("value", start_var);
     };
@@ -110,9 +101,9 @@ dispatch.on("load_choice", function (data) {
                 })
                 .text(function (d) {
                 return d;
-                })
+                });
 
-            new_var_select.exit().remove()
+            new_var_select.exit().remove();
 
             new_var_select
                 .enter()
@@ -123,7 +114,7 @@ dispatch.on("load_choice", function (data) {
                 .text(function (d) {
                     return d;
                 })
-                .merge(new_var_select)
+                .merge(new_var_select);
 
             if(!_.contains(new_var_list, current_lvl)){
 
@@ -134,7 +125,6 @@ dispatch.on("load_choice", function (data) {
                 current_lvl = d3.select("#select_lvl").property("value");
             }
         }
-
 
          var new_tbl_data = _.filter(data, function (row, i) {
             return (current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
@@ -157,12 +147,12 @@ dispatch.on("load_choice", function (data) {
                 && _.contains([row.int_process], current_int);
         });
 
-        var obs_data = _.pluck(new_tbl_data, "applications")
-        var pred_low = _.pluck(new_pred_data, "lower")[0]
-        var pred_up = _.pluck(new_pred_data, "upper")[0]
+        var obs_data = _.pluck(new_tbl_data, "applications");
+        var pred_low = _.pluck(new_pred_data, "lower")[0];
+        var pred_up = _.pluck(new_pred_data, "upper")[0];
         var in_interval = _.filter(obs_data, function(num){
             return (pred_low <= num) && (num <= pred_up);
-        })
+        });
 
         var accuracy = in_interval.length / obs_data.length;
 

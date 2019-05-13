@@ -1,3 +1,25 @@
+details, details[open], summary{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+select{
+    width: 100%;
+}
+.tile{
+    background: #ffffff;
+    width: 99.5%;
+    margin: 0.25%;
+}
+.float{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.sorting, .sorting_asc, .sorting_desc{
+    padding:5px;
+}
+
 .axis text {
     font: 10px sans-serif;
 }
@@ -9,13 +31,30 @@
     shape-rendering: crispEdges;
 }
 
-#btn_div {
-    text-align: right;
+.link_head{
+    border-bottom:1px solid black;
 }
 
-#container {
-    display: flex; /* or inline-flex */
-    flex-direction: column;
+.link_text{
+    font-size: 13px;
+    width: 100%
+}
+
+.stats_class{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-size: 20px;
+}
+
+.dataTables_filter {
+    margin-top: 3px;
+    float: left !important;
+}
+
+#btn_div {
+    text-align: right;
 }
 
 #num_div{
@@ -55,8 +94,6 @@
 }
 
 #select_div{
-    display: flex; /* or inline-flex */
-    flex-direction: row ;
     align-items: center;
     justify-content: center;
 }
@@ -66,7 +103,6 @@
     margin: auto;
     width: 120px;
 }
-
 
 #link_div{
     display: flex; /* or inline-flex */
@@ -78,66 +114,10 @@
     flex-wrap: wrap
 }
 
-.link_head{
-    border-bottom:1px solid black;
-}
-
-.link_text{
-    font-size: 13px;
-    width: 100%
-}
-
-
-/*.adv_tbl {*/
-    /*font-family: Helvetica, Arial, sans-serif;*/
-    /*border-collapse: collapse;*/
-    /*width: 100%;*/
-    /*align-self: center;*/
-    /*margin: auto;*/
-
-/*}*/
-
-/*.adv_tbl tbody {*/
-    /*height: 100px;*/
-    /*overflow-y: auto;*/
-/*}*/
-
-/*.adv_tbl th {*/
-    /*border: 1px solid #ddd;*/
-    /*padding: 8px;*/
-    /*font-family: Helvetica, Arial, sans-serif;*/
-    /*text-align: center;*/
-    /*padding-top: 12px;*/
-    /*padding-bottom: 12px;*/
-    /*background-color: rgb(40, 65, 98);*/
-    /*color: white;*/
-    /*font-weight:normal;*/
-
-/*}*/
-
-/*.adv_tbl td{*/
-    /*border: 1px solid #ddd;*/
-    /*padding: 8px;*/
-    /*font-family: Helvetica, Arial, sans-serif;*/
-    /*text-align: center;*/
-/*}*/
-
-
-/*.adv_tbl tr:nth-child(even){background-color: #f2f2f2;}*/
-
-/*.adv_tbl tr:hover {background-color: #ddd;}*/
-
 #sel_lbl{
     font-weight: normal;
 }
 
-.stats_class{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 20%;
-    padding-right: 20%;
-    font-size: 20px;
-}
 
 
 
