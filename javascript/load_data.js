@@ -43,7 +43,7 @@ function init() {
 
     function call() {
         load_choice(data);
-        load_table(tbl_data);
+        load_table(tbl_data, _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url"));
         load_viz(pred_data,tbl_data);
     }
 }

@@ -1,8 +1,3 @@
-details, details[open], summary {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 select {
     width: 100%;
 }
@@ -87,6 +82,10 @@ path{
     text-align: center;
     margin: 0;
     width: 100%;
+}
+
+#adv_table{
+    width: 1000px;
 }
 
 #nums {

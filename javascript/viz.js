@@ -35,8 +35,13 @@ function load_viz(pred_data) {
     //various vars
     var num_data = _.uniq(pred_data, 'predicted', "lower", "upper");
 
-    var new_low = _.pluck(num_data, "lower");
-    var new_high = _.pluck(num_data, "upper");
+    var new_low = _.pluck(num_data, "lower")[0];
+    var new_high = _.pluck(num_data, "upper")[0];
+
+    if(new_high == undefined)
+        new_high = 0;
+    if(new_low == undefined)
+        new_low = 0;
 
     var table_max = 0;
     var table_min = 0;
@@ -115,8 +120,13 @@ function viz_change(pred_data) {
     //various vars
     var num_data = _.uniq(pred_data, 'predicted', "lower", "upper");
 
-    var new_low = _.pluck(num_data, "lower");
-    var new_high = _.pluck(num_data, "upper");
+    var new_low = _.pluck(num_data, "lower")[0];
+    var new_high = _.pluck(num_data, "upper")[0];
+
+    if(new_high == undefined)
+        new_high = 0;
+    if(new_low == undefined)
+        new_low = 0;
 
     var table_max = 0;
     var table_min = 0;
@@ -129,9 +139,6 @@ function viz_change(pred_data) {
     var range = new_high - new_low;
     var lrange = new_low - table_min;
     var hrange = table_max - new_high;
-
-    console.log(table_min);
-    console.log(table_max);
 
     var data = [lrange, range, hrange];
 
@@ -178,6 +185,9 @@ function viz_change(pred_data) {
 }
 
 function doNums(pred_data, new_low, new_high) {
+console.log(new_low);
+console.log(new_high);
+
     //Add estimate numbers
     var numbers = d3.select("#IC_div")
         .data(pred_data)
@@ -202,12 +212,11 @@ function doNums(pred_data, new_low, new_high) {
             var j = d3.interpolateNumber(temp[1], new_high);
 
             if (document.documentElement.lang === "en") {
-                var text_fct = _.isEmpty(d) ? function () {
+                var text_fct = (new_high < 1) ? function () {
+                    console.log("yup");
                     that.html("No data")
                         .style("align-self", "flex-end")
-                        .attr("height", "300px")
-                    ;
-
+                        .attr("height", "300px");
                 } : function (t) {
                     that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
                         + '</br>'
@@ -215,10 +224,9 @@ function doNums(pred_data, new_low, new_high) {
                         + '</br>'
                         + '<span id="font_appl">applications</span>'
                     ).style("align-self", "unset");
-
                 };
             } else {
-                var text_fct = _.isEmpty(d) ? function () {
+                var text_fct = (new_high == 0) ? function () {
                     that.html("Aucune données")
                         .style("align-self", "flex-end")
                         .attr("height", "300px");

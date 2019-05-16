@@ -69,7 +69,7 @@ function load_choice(data) {
     }
 
     //add event on selecting new criteria
-    d3.selectAll(".select_class").on("change", function(){console.log("changed!"); state_change(data);});
+    d3.selectAll(".select_class").on("change", function(){state_change(data);});
 }
 
 function state_change(data) {
@@ -155,8 +155,7 @@ function state_change(data) {
 
     var accuracy = in_interval.length / obs_data.length;
 
-    //todo: make calls to table and viz to change
-    //dispatch.call("viz_change", this, new_pred_data, new_tbl_data);
-    tbl_change(new_tbl_data);
+    //Call datatable and visualisation
+    tbl_change(new_tbl_data, _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url"));
     viz_change(new_pred_data,new_tbl_data);
 }
