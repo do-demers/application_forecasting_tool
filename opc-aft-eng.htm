@@ -173,7 +173,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                                                aria-setsize="4"><abbr title="Priority Information Management System">PIMS</abbr>
                                             Support Centre</a></li>
                                         <!--<li>
-                                          <div><a href="/psac-cccfp/index-eng.htm"><acronym title="Public Service Commission">PSC</acronym> Advisory Committee</a></div>
+                                    <div><a href="/psac-cccfp/index-eng.htm"><acronym title="Public Service Commission">PSC</acronym> Advisory Committee</a></div>
                                         </li>-->
                                     </ul>
                                 </div>
@@ -250,7 +250,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                                 <div id="select_div"></div>
                             </div>
                             <div id="num_div">
-                                <svg></svg>
+                                <div id="arc_div"></div>
                                 <div id="low_response" class="alert alert-warning" style="display:none">less than 10
                                     observations, please use estimates with caution
                                 </div>
@@ -260,8 +260,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                         <div id="container" class="tile">
                             <div id="main_tbl_div">
                                 <div id="stats_div" class="stats_class">
-                                    <div id="min_div"> Minimum: 55</div>
-                                    <div id="max_div"> Maximum: 75</div>
+                                    <div id="min_div"></div>
+                                    <div id="max_div"></div>
                                 </div>
                                 <div id="tbl_div">
 
@@ -273,8 +273,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                     <dl id="gcwu-date-mod" role="contentinfo">
                         <dt>Date modified:</dt>
                         <dd><span>
-                    <time>{Date}</time>
-                </span></dd>
+        <time>{Date}</time>
+    </span></dd>
                     </dl>
                     <div class="clear"></div>
                     <!-- MainContentEnd -->
@@ -348,8 +348,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                                <div class="span-2">
                                  <h4 class="gcwu-col-head"><a href="/centres/landing-renvoi/info-connected-branches-eng.htm">Stay connected</a></h4>
                                  <ul>
-                                   <li><a href="/centres/rss-eng.htm">Feeds</a></li>
-                                   <li><a href="http://www2.psc-cfp.gc.ca/mailman/listinfo/lhhr-lcrh?language=en">Subscribe</a></li>
+                             <li><a href="/centres/rss-eng.htm">Feeds</a></li>
+                             <li><a href="http://www2.psc-cfp.gc.ca/mailman/listinfo/lhhr-lcrh?language=en">Subscribe</a></li>
                                  </ul>
                                </div>
                              </section>-->
@@ -430,8 +430,10 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <script src="javascript/load_param.js"></script>
 <script src="javascript/load_data.js"></script>
 <script src="javascript/dropbox.js"></script>
-<script src="javascript/viz.js"></script>
 <script src="javascript/table.js"></script>
+<script src="javascript/viz.js"></script>
+
+<script> init() </script>
 
 <!-- ScriptsEnd -->
 

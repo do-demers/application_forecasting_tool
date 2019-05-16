@@ -1,46 +1,53 @@
-details, details[open], summary{
+details, details[open], summary {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-select{
+select {
     width: 100%;
 }
-.tile{
+
+span {
+    display: block;
+    margin: 0.5%;
+}
+path{
+    stroke: #ffffff;
+}
+
+.pieText{
+    font-size: 16px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    text-anchor: middle;
+    alignment-baseline: hanging;
+}
+
+.tile {
     background: #ffffff;
     width: 99.5%;
     margin: 0.25%;
 }
-.float{
+
+.float {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.sorting, .sorting_asc, .sorting_desc{
-    padding:5px;
+
+.sorting, .sorting_asc, .sorting_desc {
+    padding: 5px;
 }
 
-.axis text {
-    font: 10px sans-serif;
+.link_head {
+    border-bottom: 1px solid black;
 }
 
-.axis line,
-.axis path {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-}
-
-.link_head{
-    border-bottom:1px solid black;
-}
-
-.link_text{
+.link_text {
     font-size: 13px;
     width: 100%
 }
 
-.stats_class{
+.stats_class {
     display: flex;
     justify-content: space-between;
     padding-left: 20%;
@@ -53,71 +60,67 @@ select{
     float: left !important;
 }
 
-#btn_div {
-    text-align: right;
-}
-
-#num_div{
-    display: flex; /* or inline-flex */
-    flex-direction: row ;
-    align-items: center;
-    justify-content: center;
-}
-
-#IC_div{
-    font: 300 100px/100px "Helvetica Neue";
-    text-align: center;
-    width: 900px;
-    height: 300px;
-    margin: 0;
-    /*align-self: flex-end;*/
-}
-
-#font_intro{
-    font-size: 16px;
-    font-family: Helvetica, Arial, sans-serif;
-}
-
-#font_appl{
-    font-size: 40px;
-}
-
-
-#app_div{
-    text-align: center;
-    font-size:15px;
-}
-
-#choice_div{
-    display: flex; /* or inline-flex */
-    flex-direction: column ;
-}
-
-#select_div{
-    align-items: center;
-    justify-content: center;
-}
-
-.select_class{
+.select_class {
     align-self: center;
     margin: auto;
     width: 120px;
 }
 
-#link_div{
-    display: flex; /* or inline-flex */
-    flex-direction: column ;
+#btn_div {
+    text-align: right;
+}
+
+#num_div {
+    padding: 0.25%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width:300px;
+}
+
+#arc_div{
+    align-items: left;
+}
+
+#IC_div {
+    font-size: 16px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+#nums {
+    font-size: 75px;
+}
+
+#font_appl {
+    font-size: 30px;
+}
+
+#app_div {
+    text-align: center;
+    font-size: 15px;
+}
+
+#choice_div {
+    flex-direction: column;
+}
+
+#select_div {
+    align-items: center;
+    justify-content: center;
+}
+
+#link_div {
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
     text-align: center;
     flex-wrap: wrap
 }
 
-#sel_lbl{
+#sel_lbl {
     font-weight: normal;
 }
-
-
-
-

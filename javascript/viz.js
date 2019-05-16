@@ -1,138 +1,246 @@
+//Globals for ease of update
+//pie math
+var width = 800;
+var height = 300;
 
-dispatch.on("load_viz.bar", function (viz_data) {
+var format = d3.format("d");
 
-    var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-        width = 80 - margin.left - margin.right,
-        height = 460 - margin.top - margin.bottom;
+var pie = d3.pie()
+    .startAngle(-0.66 * Math.PI)
+    .endAngle(0.66 * Math.PI)
+    .sort(null);
 
-    var yScale = d3.scaleLinear()
-            .domain([0, d3.max(_.pluck(data, 'predicted'))])
-            .rangeRound([height, 0])
-            .nice();
+var paths = d3.arc()
+    .innerRadius(100)
+    .outerRadius(150)
+    .cornerRadius(4);
 
-    var yAxis = d3
-            .axisLeft(yScale)
-            .tickFormat(d3.format(".2s"));
+var label = d3.arc()
+    .innerRadius(180)
+    .outerRadius(180);
 
-    var svg = d3.select("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select("#arc_div")
+    .append("svg")
+    .attr("id", "arc_svg")
+    .attr("width", width)
+    .attr("height", height);
 
-    svg
+var g = svg
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height * 2/3 + ")");
+
+//Make initial pie
+function load_viz(pred_data) {
+
+    //various vars
+    var num_data = _.uniq(pred_data, 'predicted', "lower", "upper");
+
+    var new_low = _.pluck(num_data, "lower");
+    var new_high = _.pluck(num_data, "upper");
+
+    var table_max = 0;
+    var table_min = 0;
+
+    //max could be very large
+    if (new_high >=100)
+        table_max = format(new_high);
+    else
+        table_max = 100;
+
+    var range = new_high - new_low;
+    var lrange = new_low - table_min;
+    var hrange = table_max - new_high;
+
+    var data = [lrange, range, hrange];
+
+    var arcData = pie(data);
+
+    // Create a pie
+    var arc = g
+        .selectAll(".arc")
+        .data(arcData)
+        .enter()
         .append("g")
-        .attr("class", "yScale axis")
-        .call(yAxis);
+        .attr("class", "arc");
 
-    var rect = svg
-        .append("rect")
-        .attr("x", 4)
-        .attr("width", width - 4)
-        .attr("y", height)
-        .attr("height", 0)
-        .style("fill", "rgb(51, 80, 117)");
+    arc.append('path')
+        .attr('d', paths)
+        .attr("fill", function (d) {
+            if (d.index == 1) {
+                return "#3c7397";
+            }
+            else {
+                return "#b4d5e0";
+            }
+        })
+        .each(function (d) {
+            this._current = d;
+        });
 
-    dispatch.on("viz_change.bar", function (d) {
+    arc.append("text")
+        .attr("class", "pieText")
+        .attr("transform", function (d) {
+            if (d.index == 0) {
+                return "translate(-100,75)";
+            }
+            else if (d.index == 1) {
+                return "translate(" + label.centroid(d) + ")";
+            }
+            else {
+                return "translate(100,75)";
+            }
+        })
+        .attr("fill", "black")
+        .text(function (d) {
+            if (d.index == 0) {
+                return table_min;
+            }
+            else if (d.index == 1) {
+                return format(new_low) + " - " + format(new_high);
+            }
+            else {
+                return table_max;
+            }
+        })
+        .each(function (d) {
+            this._current = d;
+        });
 
-        var bar_data = _.uniq(d, 'predicted', "lower", "upper");
+    //Add number text
+    doNums(pred_data, new_low, new_high);
+}
 
-        var pred_value = _.pluck(bar_data, "predicted");
+function viz_change(pred_data) {
 
-        yScale.domain([0, d3.max(_.pluck(bar_data, "upper"))]);
+    //various vars
+    var num_data = _.uniq(pred_data, 'predicted', "lower", "upper");
 
-        svg.select(".yScale.axis")
-            .transition()
-            .duration(1500)
-            .call(yAxis);
+    var new_low = _.pluck(num_data, "lower");
+    var new_high = _.pluck(num_data, "upper");
 
-        rect
-            .transition()
-            .attr("y", yScale(pred_value))
-            .attr("height", yScale(0) - yScale(pred_value));
+    var table_max = 0;
+    var table_min = 0;
 
-    });
-});
+    if (new_high >=100)
+        table_max = format(new_high);
+    else
+        table_max = 100;
 
-dispatch.on("load_viz.numbers", function (viz_data) {
+    var range = new_high - new_low;
+    var lrange = new_low - table_min;
+    var hrange = table_max - new_high;
 
-    var numbers = d3.select("#IC_div")
-            .data(viz_data)
-            .text(function (d) {
-                return "1" + " - " + "2";
-            });
+    console.log(table_min);
+    console.log(table_max);
 
-    dispatch.on("viz_change.numbers", function (d, tbl_data) {
+    var data = [lrange, range, hrange];
 
-        var num_data = _.uniq(d, 'predicted', "lower", "upper");
+    var arcData = pie(data);
 
-        var new_low = _.pluck(num_data, "lower");
-        var new_high = _.pluck(num_data, "upper");
+    var arc = g
+        .selectAll("path")
+        .data(arcData);
 
-        // to modify
-        if(tbl_data.length < 10) {
-            d3.select('#low_response').style('display','block')
+    arc.transition()
+        .duration(2000)
+        .attrTween("d", arcTween);
+
+    d3.selectAll(".pieText")
+        .data(arcData)
+        .transition()
+        .duration(2000)
+        .attrTween("d", arcTween)
+        .attr("transform", function (d) {
+            if (d.index == 0) {
+                return "translate(-100,75)";
+            }
+            else if (d.index == 1) {
+                return "translate(" + label.centroid(d) + ")";
+            }
+            else {
+                return "translate(100,75)";
+            }
+        })
+        .text(function (d) {
+        if (d.index == 0) {
+            return table_min;
         }
+        else if (d.index == 1) {
+            return format(new_low) + " - " + format(new_high);
+        }
+        else {
+            return table_max;
+        }
+    });
 
+    //Add number text
+    doNums(pred_data, new_low, new_high);
+}
 
-        numbers.transition()
-            .duration(2500)
-            .tween("text", function () {
+function doNums(pred_data, new_low, new_high) {
+    //Add estimate numbers
+    var numbers = d3.select("#IC_div")
+        .data(pred_data)
+        .text("x - y");
 
-                var format = d3.format("d");
-                var that = d3.select(this);
+    numbers.transition()
+        .duration(2500)
+        .tween("text", function (d) {
+            var that = d3.select(this);
 
-                if (document.documentElement.lang === "en") {
-                    var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
-                        return +v;
-                    });
-                }else {
-                    var temp = (that.node().innerHTML = "Aucune données") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
-                        return +v;
-                    });
-                }
+            if (document.documentElement.lang === "en") {
+                var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                    return +v;
+                });
+            } else {
+                var temp = (that.node().innerHTML = "Aucune données") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                    return +v;
+                });
+            }
 
-                var i = d3.interpolateNumber(temp[0], new_low);
+            var i = d3.interpolateNumber(temp[0], new_low);
+            var j = d3.interpolateNumber(temp[1], new_high);
 
-                var j = d3.interpolateNumber(temp[1], new_high);
+            if (document.documentElement.lang === "en") {
+                var text_fct = _.isEmpty(d) ? function () {
+                    that.html("No data")
+                        .style("align-self", "flex-end")
+                        .attr("height", "300px")
+                    ;
 
-                if (document.documentElement.lang === "en") {
-                    var text_fct = _.isEmpty(d) ? function (t) {
+                } : function (t) {
+                    that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
+                        + '</br>'
+                        + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
+                        + '</br>'
+                        + '<span id="font_appl">applications</span>'
+                    ).style("align-self", "unset");
 
-                        that
-                            .html("No data")
-                            .style("align-self", "flex-end")
-                            .attr("height", "300px")
-                        ;
+                };
+            } else {
+                var text_fct = _.isEmpty(d) ? function () {
+                    that.html("Aucune données")
+                        .style("align-self", "flex-end")
+                        .attr("height", "300px");
 
-                    } : function (t) {
+                } : function (t) {
+                    that.html('<span id="font_intro">Pour les caractéristiques ci-dessus, on estime que vous recevrez entre</span>'
+                        + '</br>'
+                        + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
+                        + '</br>'
+                        + '<span id="font_appl">candidatures</span>'
+                    ).style("align-self", "unset");
 
-                        that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
-                            + '</br>' + format(i(t)) + ' - ' + format(j(t))
-                            + '</br>'
-                            + '<span id="font_appl">applications</span>'
-                        ).style("align-self", "unset");
-
-                    };
-                }else{
-
-                    var text_fct = _.isEmpty(d) ? function (t) {
-                        that
-                            .html("Aucune données")
-                            .style("align-self", "flex-end")
-                            .attr("height", "300px");
-
-                    } : function (t) {
-
-                        that.html('<span id="font_intro">Pour les caractéristiques ci-dessus, on estime que vous recevrez entre</span>'
-                            + '</br>' + format(i(t)) + ' - ' + format(j(t))
-                            + '</br>'
-                            + '<span id="font_appl">candidatures</span>'
-                        ).style("align-self", "unset");
-
-                    };
-                }
+                };
+            }
             return text_fct;
         });
-    });
-});
+}
+function arcTween(a) {
+
+    var i = d3.interpolate(this._current, a);
+    this._current = i(0);
+    return function (t) {
+        return paths(i(t));
+    };
+}

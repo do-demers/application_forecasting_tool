@@ -1,4 +1,4 @@
-dispatch.on("load_tbl.table", function (tbl_data) {
+function load_table(data) {
 
     var columns = _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url");
 
@@ -21,19 +21,10 @@ dispatch.on("load_tbl.table", function (tbl_data) {
             return column;
         });
 
-    //Header row for filters
-    /* thead.append('tr')
-     .attr("class", "filterRow")
-     .selectAll('th')
-     .data(headers)
-     .enter()
-     .append('th')
-     .text('');*/
-
     // create a row for each object in the data
     var rows_grp = tbody
         .selectAll('tr')
-        .data(tbl_data);
+        .data(data);
 
     var rows_grp_enter = rows_grp
         .enter()
@@ -62,6 +53,8 @@ dispatch.on("load_tbl.table", function (tbl_data) {
             }
         });
 
+    console.log("Load table");
+/*
     $('#adv_tbl').DataTable({
         paging: true,
         searching: true,
@@ -86,163 +79,82 @@ dispatch.on("load_tbl.table", function (tbl_data) {
             },
             {"visible": false, "targets": [2]}
         ]
-        //For column filters
-        /*initComplete: function () {
-         this.api().columns([0, 3, 4, 8]).every(function () {
-         var column = this;
-         var select = $('<select><option value="">All</option></select>')
-         .appendTo($("#adv_tbl thead tr:eq(1) th").eq(column.index()).empty())
-         .on('change', function () {
-         var val = $.fn.dataTable.util.escapeRegex(
-         $(this).val()
-         );
-
-         column.search(val ? '^' + val + '$' : '', true, false)
-         .draw();
-         });
-
-         column.data().unique().sort().each(function (d, j) {
-         select.append('<option>' + d + '</option>')
-         });
-
-         });
-         },*/
 
     });
+    */
+}
 
-    dispatch.on("tbl_change.table", function (d) {
+function tbl_change(data) {
 
+    console.log("change table");
 
-        $('#adv_tbl').DataTable().destroy();
+   /* $('#adv_tbl').DataTable().destroy();*/
 
-        var sorted_data = _.sortBy(d, 'applications');
+    var sorted_data = _.sortBy(data, 'applications');
 
-        var columns = _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url");
+    var columns = _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url");
 
-        var table_u = d3.select('table');
+    var table_u = d3.select('table');
 
-        var tbody_u = table_u.select('tbody');
+    var tbody_u = table_u.select('tbody');
 
-        var rows_grp_u = tbody_u.selectAll('tr').data(sorted_data);
+    var rows_grp_u = tbody_u.selectAll('tr').data(sorted_data);
 
-        rows_grp_u.exit().remove();
+    rows_grp_u.exit().remove();
 
-        var rows_grp_enter_u = rows_grp_u.enter().append('tr');
+    var rows_grp_enter_u = rows_grp_u.enter().append('tr');
 
-        var new_tds = rows_grp_u.merge(rows_grp_enter_u).selectAll('td').data(function (row) {
+    var new_tds = rows_grp_u.merge(rows_grp_enter_u).selectAll('td').data(function (row) {
 
-            return columns.map(function (column) {
-                return {column: column, value: row[column], link: row["url"]};
-            });
+        return columns.map(function (column) {
+            return {column: column, value: row[column], link: row["url"]};
         });
+    });
 
-        new_tds.html(function (d) {
-            if (d.column === "Sel_Process_Nbr") {
-                var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
-                return new_sel_proc;
-            } else {
-                return d.value;
-            }
-        });
-
-        new_tds.enter().append('td').html(function (d) {
-            if (d.column === "Sel_Process_Nbr") {
-                var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
-                return new_sel_proc;
-            } else {
-                return d.value;
-            }
-        });
-
-
-        $('#adv_tbl').DataTable({
-            paging: true,
-            searching: true,
-            orderCellsTop: true,
-            dom: 'Bfrtip',
-            buttons: [
-                'csv', 'excel', {
-                    extend: 'pdfHtml5',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL'
-                }
-            ],
-            columnDefs: [
-                {
-                    // The `data` parameter refers to the data for the cell (defined by the
-                    // `data` option, which defaults to the column being worked with, in
-                    // this case `data: 0`.
-                    "render": function (data, type, row) {
-                        return data + '-' + row[2];
-                    },
-                    "targets": 1
-                },
-                {"visible": false, "targets": [2]},
-                { "width": "9%", "targets": [9,10] }
-            ]
-        });
-
-        var table_max = _.isEmpty(_.pluck(d, "applications")) ? 0 : _.max(_.pluck(d, "applications"));
-        var table_min = _.isEmpty(_.pluck(d, "applications")) ? 0 : _.min(_.pluck(d, "applications"));
-
-        //Update descriptive Stats FR and EN dependant
-        if (document.documentElement.lang == "en") {
-            //Update descriptive Stats
-            d3.select("#min_div")
-                .text("Minimum (actual): " + table_min);
-
-            d3.select("#max_div")
-                .text("Maximum (actual): " + table_max);
-
+    new_tds.html(function (d) {
+        if (d.column === "Sel_Process_Nbr") {
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
+            return new_sel_proc;
         } else {
-            //Update descriptive Stats
-            d3.select("#min_div")
-                .text("Minimum (réel): " + table_min);
-
-            d3.select("#max_div")
-                .text("Maximum (réel): " + table_max);
-
+            return d.value;
         }
-
-        d3.select("#exp_data")
-            .on("click", function () {
-
-                var csv_headers = _.union(headers, ["url"]);
-
-                var csvContent = "";
-
-                csvContent += csv_headers.join(",") + "\r\n";
-
-                var csv_data = _.map(d, function (row) {
-                    temp_var = _.pick(row, columns, "url");
-                    return temp_var
-                });
-
-                _.map(csv_data, function (row) {
-                    var row_array = _.map(row, function (x) {
-                        return "\"" + x + "\"";
-                    }).join(",");
-                    csvContent += row_array + "\r\n";
-                });
-
-                if (window.navigator.msSaveOrOpenBlob) {
-
-                    var blob = new Blob(["\ufeff", decodeURIComponent(encodeURI(csvContent))], {
-                        type: "text/csv;charset=utf-8"
-                    });
-
-                    navigator.msSaveBlob(blob, "applications.csv");
-
-                } else {
-
-                    d3.select("#exp_data")
-                        .attr("href", "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(csvContent))
-                        .attr("download", "applications.csv")
-
-                }
-
-            });
-
-
     });
-});
+
+    new_tds.enter().append('td').html(function (d) {
+        if (d.column === "Sel_Process_Nbr") {
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
+            return new_sel_proc;
+        } else {
+            return d.value;
+        }
+    });
+
+/*
+    $('#adv_tbl').DataTable({
+        paging: true,
+        searching: true,
+        orderCellsTop: true,
+        dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
+        ],
+        columnDefs: [
+            {
+                // The `data` parameter refers to the data for the cell (defined by the
+                // `data` option, which defaults to the column being worked with, in
+                // this case `data: 0`.
+                "render": function (data, type, row) {
+                    return data + '-' + row[2];
+                },
+                "targets": 1
+            },
+            {"visible": false, "targets": [2]},
+            {"width": "9%", "targets": [9, 10]}
+        ]
+    });*/
+}
+
