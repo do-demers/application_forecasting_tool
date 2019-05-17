@@ -61,6 +61,10 @@ path{
     width: 120px;
 }
 
+#adv_tbl_paginate{
+    width: 500px;
+}
+
 #btn_div {
     text-align: right;
 }

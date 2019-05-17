@@ -27,7 +27,7 @@ var svg = d3.select("#arc_div")
 
 var g = svg
     .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height * 2/3 + ")");
+    .attr("transform", "translate(" + width / 2 + "," + height * 2 / 3 + ")");
 
 //Make initial pie
 function load_viz(pred_data) {
@@ -38,16 +38,16 @@ function load_viz(pred_data) {
     var new_low = _.pluck(num_data, "lower")[0];
     var new_high = _.pluck(num_data, "upper")[0];
 
-    if(new_high == undefined)
+    if (new_high == undefined)
         new_high = 0;
-    if(new_low == undefined)
+    if (new_low == undefined)
         new_low = 0;
 
     var table_max = 0;
     var table_min = 0;
 
     //max could be very large
-    if (new_high >=100)
+    if (new_high >= 100)
         table_max = format(new_high);
     else
         table_max = 100;
@@ -123,15 +123,15 @@ function viz_change(pred_data) {
     var new_low = _.pluck(num_data, "lower")[0];
     var new_high = _.pluck(num_data, "upper")[0];
 
-    if(new_high == undefined)
+    if (new_high === undefined)
         new_high = 0;
-    if(new_low == undefined)
+    if (new_low === undefined)
         new_low = 0;
 
     var table_max = 0;
     var table_min = 0;
 
-    if (new_high >=100)
+    if (new_high >= 100)
         table_max = format(new_high);
     else
         table_max = 100;
@@ -169,80 +169,84 @@ function viz_change(pred_data) {
             }
         })
         .text(function (d) {
-        if (d.index == 0) {
-            return table_min;
-        }
-        else if (d.index == 1) {
-            return format(new_low) + " - " + format(new_high);
-        }
-        else {
-            return table_max;
-        }
-    });
+            if (d.index == 0) {
+                return table_min;
+            }
+            else if (d.index == 1) {
+                return format(new_low) + " - " + format(new_high);
+            }
+            else {
+                return table_max;
+            }
+        });
 
     //Add number text
     doNums(pred_data, new_low, new_high);
 }
 
 function doNums(pred_data, new_low, new_high) {
-console.log(new_low);
-console.log(new_high);
 
     //Add estimate numbers
     var numbers = d3.select("#IC_div")
         .data(pred_data)
-        .text("x - y");
+        .text("0 - 0");
 
-    numbers.transition()
-        .duration(2500)
-        .tween("text", function (d) {
-            var that = d3.select(this);
+    if (new_high === 0) {
+        d3.select("#IC_div")
+            .text(function () {
+                if (document.documentElement.lang === "en") {
+                    return "No data";
+                }
+                else {
+                    return "Aucune données";
+                }
+            })
+            .style("font-size", "75px");
+    }
 
-            if (document.documentElement.lang === "en") {
-                var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
-                    return +v;
-                });
-            } else {
-                var temp = (that.node().innerHTML = "Aucune données") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
-                    return +v;
-                });
-            }
+    else {
+        numbers.transition()
+            .duration(2500)
+            .tween("text", function (d) {
+                var that = d3.select(this);
 
-            var i = d3.interpolateNumber(temp[0], new_low);
-            var j = d3.interpolateNumber(temp[1], new_high);
+                if (document.documentElement.lang === "en") {
+                    var temp = (that.node().innerHTML = "No data") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                        return +v;
+                    });
+                } else {
+                    var temp = (that.node().innerHTML = "Aucune données") ? [0, 0] : previous_num.match(/^\d+|\d+\b|\d+(?=\w)/g).map(function (v) {
+                        return +v;
+                    });
+                }
 
-            if (document.documentElement.lang === "en") {
-                var text_fct = (new_high < 1) ? function () {
-                    console.log("yup");
-                    that.html("No data")
-                        .style("align-self", "flex-end")
-                        .attr("height", "300px");
-                } : function (t) {
-                    that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
-                        + '</br>'
-                        + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
-                        + '</br>'
-                        + '<span id="font_appl">applications</span>'
-                    ).style("align-self", "unset");
-                };
-            } else {
-                var text_fct = (new_high == 0) ? function () {
-                    that.html("Aucune données")
-                        .style("align-self", "flex-end")
-                        .attr("height", "300px");
+                var i = d3.interpolateNumber(temp[0], new_low);
+                var j = d3.interpolateNumber(temp[1], new_high);
 
-                } : function (t) {
-                    that.html('<span id="font_intro">Pour les caractéristiques ci-dessus, on estime que vous recevrez entre</span>'
-                        + '</br>'
-                        + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
-                        + '</br>'
-                        + '<span id="font_appl">candidatures</span>'
-                    ).style("align-self", "unset");
+                if (document.documentElement.lang === "en") {
+                    var text_fct = function (t) {
+                        that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
+                            + '</br>'
+                            + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
+                            + '</br>'
+                            + '<span id="font_appl">applications</span>'
+                        ).style("align-self", "unset");
+                    };
+                } else {
+                    var text_fct =  function (t) {
+                        that.html('<span id="font_intro">Pour les caractéristiques ci-dessus, on estime que vous recevrez entre</span>'
+                            + '</br>'
+                            + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
+                            + '</br>'
+                            + '<span id="font_appl">candidatures</span>'
+                        ).style("align-self", "unset");
 
-                };
-            }
-            return text_fct;
-        });
+                    };
+                }
+                return text_fct;
+            });
+    }
+
 }
 function arcTween(a) {
 
