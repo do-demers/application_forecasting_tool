@@ -200,8 +200,7 @@ function doNums(pred_data, new_low, new_high) {
                 else {
                     return "Aucune données";
                 }
-            })
-            .style("font-size", "75px");
+            });
     }
 
     else {
