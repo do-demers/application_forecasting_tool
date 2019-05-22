@@ -9,6 +9,16 @@ span {
 path{
     stroke: #ffffff;
 }
+.alert {
+    padding: 15px;
+    border: none;
+    border-left: 4px solid;
+    margin: auto;
+}
+.alert-warning {
+    border-color: rgb(255, 153, 0);
+    background-color:  rgb(249, 244, 212);
+}
 
 .pieText{
     font-size: 16px;
@@ -59,6 +69,11 @@ path{
     align-self: center;
     margin: auto;
     width: 120px;
+}
+
+#low_response{
+    width: 66%;
+    margin: auto;
 }
 
 #adv_tbl_paginate{

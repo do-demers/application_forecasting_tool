@@ -82,6 +82,16 @@ function load_table(tbl_data, columns) {
 
 function tbl_change(tbl_data, columns) {
 
+    //Hide warning if it's up from previous data
+    d3.select("#low_response").style("display","none");
+
+    if (tbl_data.length <= 10)
+    {
+        console.log("Warning");
+        d3.select("#low_response")
+            .style("display","inline-flex");
+    }
+
     $('#adv_tbl').DataTable().destroy();
 
     var sorted_data = _.sortBy(tbl_data, 'applications');
