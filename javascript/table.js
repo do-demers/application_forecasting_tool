@@ -42,8 +42,9 @@ function load_table(tbl_data, columns) {
         .enter()
         .append('td')
         .html(function (d) {
-            if (d.column === "POSITION_TITLE_E") {
-                return "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
+            if(d.column === "Sel_Process_Nbr"){
+                var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+                return new_sel_proc;
             }
             else {
                 return d.value;
@@ -116,16 +117,18 @@ function tbl_change(tbl_data, columns) {
     });
 
     new_tds.html(function (d) {
-        if(d.column === "POSITION_TITLE_E"){
-            return "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+        if(d.column === "Sel_Process_Nbr"){
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+            return new_sel_proc;
         }else {
             return d.value;
         }
     });
 
     new_tds.enter().append('td').html(function (d) {
-        if(d.column === "POSITION_TITLE_E"){
-            return "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+        if(d.column === "Sel_Process_Nbr"){
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+            return new_sel_proc;
         }else {
             return d.value;
         }

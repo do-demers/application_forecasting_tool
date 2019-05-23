@@ -9,6 +9,15 @@ span {
 path{
     stroke: #ffffff;
 }
+
+th {
+    font-size: 14px;
+}
+
+td {
+    font-size: 12px;
+}
+
 .alert {
     padding: 15px;
     border: none;
@@ -24,7 +33,6 @@ path{
     font-size: 16px;
     font-family: "Helvetica", "Arial", sans-serif;
     text-anchor: middle;
-    alignment-baseline: hanging;
 }
 
 .tile {
