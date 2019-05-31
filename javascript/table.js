@@ -1,5 +1,11 @@
 function load_table(tbl_data, columns) {
 
+    //Display number of ads
+    d3.select('#ad_count')
+        .text(function () {
+            return "There are " + tbl_data.length + " advertisements";
+        });
+
     var table = d3.select('#tbl_div')
         .append('table')
         .attr("id", "adv_tbl")
@@ -82,6 +88,12 @@ function load_table(tbl_data, columns) {
 }
 
 function tbl_change(tbl_data, columns) {
+
+    //Display number of ads
+    d3.select('#ad_count')
+        .text(function () {
+            return "There are " + tbl_data.length + " advertisements";
+        });
 
     //Hide warning if it's up from previous data
     d3.select("#low_response").style("display","none");

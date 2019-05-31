@@ -36,7 +36,7 @@ td {
 }
 
 .tile {
-    background: #ffffff;
+
     width: 99.5%;
     margin: 0.25%;
 }
@@ -80,7 +80,8 @@ td {
 }
 
 #low_response{
-    width: 66%;
+    width: 100%;
+    text-align: center;
     margin: auto;
 }
 
