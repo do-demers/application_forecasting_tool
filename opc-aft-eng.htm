@@ -103,7 +103,7 @@
                             <ul class="sm list-unstyled" id="jobs" role="menu">
                                 <li><a role="menuitem" href="http://www.jobbank.gc.ca/home-eng.do?lang=eng">Job Bank</a></li>
                                 <li><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find     a job</a></li>
-                                <li><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+                       li         <li><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
                                 <li><a role="menuitem" href="http://www.canada.ca/business-management">Hire     and manage employees</a></li>
                                 <li><a role="menuitem" href="http://www.canada.ca/start-business">Starting a     business</a></li>
                                 <li><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace     standards</a></li>
@@ -215,52 +215,103 @@
                 by helping departments and agencies decrease the Time-to-Staff (TTS). In order to do so, the PSC
                 undertook a research project to identify the underlying key drivers of TTS.</p>
 
-            <p>The research findings indicate that the number of applications for a given selection process
+            <p>Research findings indicate that the number of applications, for a given job advertisement,
                 increases the TTS by approximately 0.15 days for each additional percent increase in
-                applications. For example,
-                for a selection process with 100 applications, it will take on average 1.5 days longer to staff
-                if the process receives an extra 10 applications</p>
+                applications. For example, for a selection process with 100 applications, it will take on average 1.5
+                days longer to staff if the process receives 10 additional applications. </p>
 
             <p>Given these findings, predicting the number of applications, prior to advertising the position,
-                would help HR professionals and hiring managers to effectively plan and organise their staffing
-                activities in a more-informed way </p>
+                would help HR professionals and hiring managers to effectively plan and organize their staffing
+                activities in a more-informed way.</p>
 
             <p>Using lightweight open-source technologies and statistical analysis, the PSC has developed an
-                innovative protoype called the application forecasting tool which provides estimates of the
-                number of applications a process can expect, based on user-defined characteristics of the process </p>
+                innovative tool called the <i>Application Forecasting Tool</i> which provides the estimated
+                number of applications per process, based on user-defined characteristics of the process.</p>
 
-            <p>The tool also provides a list of all internal and external processes that closed between April
-                1st 2015 and March 31st 2018 that meet the characteristics selected by the user. Moreover, for
-                each process in the list, the actual number of applications received and a link to the SOMC is also
-                provided </p>
+            <p>The estimates shown represent the likely range for the average number of applications to a job advertisement
+                with the characteristics selected by the user - it is <b>not</b> an estimate of the full range of possible
+                outcomes. As such, given the actual number of applications might be outside the estimated values - results should
+                be used for informational purposes only. For example, results can be affected by low numbers of job
+                advertisements, or job classifications with diverse requirements.</p>
 
-            <p>This tool is currently in beta version.
-                Future improvements will provide more robust estimates, including more key drivers of the number
-                of applications and other user-experience features. </p>
+            <p>The tool also provides a list of all internal and external job advertisements that closed between April
+                1, 2015 and March 31, 2019 that meet the characteristics selected by the user. Moreover, for
+                each process listed, the actual number of applications received and a link to the job advertisement are
+                also provided.</p>
 
-            <div id="chart">
+            <p>This tool was most recently updated on [DATE-to be added later] and include:
+            <ul>
+                <li>data from fiscal year 2018-2019</li>
+                <li>introduction of the academic level required in the essential qualification as a key driver</li>
+                <li>more precise options in the process type, number of positions and location variables</li>
+            </ul>
+            </p>
+
+            <p class="alert alert-danger"> Inventories, alternates and cancelled job advertisements are excluded.
+                Positions were counted once for each location and classification on the job advertisement.
+                As such, totals derived from this tool might not reflect those published in the
+                PSC's Annual Report. </p>
+
+            <p>The education field is derived from the education section of the essential qualifications of a ob advertisement.
+                The information was gathered using an innovative text analysis approach that found words associated with education,
+                (eg: law degree, two years of post-secondary education) and categorized them into the following 8
+                education levels:
+                <ul>
+                    <li>Education not listed in essential qualifications</li>
+                    <li>Some high school</li>
+                    <li>High school diploma</li>
+                    <li>Some post-secondary</li>
+                    <li>Completion of post-secondary (including CÉGEP, College and Bachelor’s)</li>
+                    <li>Professional degree (including Law degree and Medical degrees</li>
+                    <li>Master’s degree</li>
+                    <li>Ph.D. or higher degree</li>
+                </ul>
+                Where the essential qualification lists two possible levels of education, such as requiring a Bachelor’s
+                OR a Master’s degree, the lower qualification is listed.
+            </p>
+
+            <p>The process type field is derived from the “Who can apply” section at the beginning of a job advertisement.
+                We used a <i>Name-Entity Recognition</i> (NER) technique to extract the organisations, locations and occupational groups
+                listed in the area of selection. These entities correspond to the three types of eligibility criteria
+                allowable for the area of selection, as outlined in the Public Service Employment Act. Using these tags,
+                we then categorized the jobs into four process types:
+            <ul>
+                <li>External process: These are jobs open to the public.</li>
+                <li>Internal process, Open: These are jobs open to all public servants in Canada.</li>
+                <li>Internal process, NCR: These jobs are open to all public servants in the National Capital Region.</li>
+                <li>Internal process, Other: These jobs use one or more eligibility criteria in their area of selection.</li>
+            </ul>
+                For example: all employees of Parks Canada in the Western Region or all employees at level EX minus one.</p>
+
+            <p>Both of these categories were derived using innovative natural language processing algorithms to
+                to turn unstructured text fields, like to “Who can apply” and the “education section” of job advertisements,
+                into structured text. The main benefit of using such algorithms is to maximize information extraction
+                to develop analysis and tools, such as the <i>Application Forecasting Tool</i>.</p>
+
+            <div id="chart" class="panel panel-info">
+                <header class="panel-heading">
+                    <h5 class="panel-title">Application Forecasting Tool</h5>
+                </header>
                 <div id="viz" class="tile float">
                     <div id="choice_div">
                         <div id="select_div"></div>
                     </div>
                     <div id="num_div">
-                        <div id="arc_div"></div>
-                        <div id="IC_div"></div>
+                        <!--<div id="arc_div"></div>-->
+                        <p id="ad_count">
+                            Between April 1st 2015 and March 31st 2019, there were Z advertisement(s) that generated between XX and YY application(s).
+                            We estimate that for these characteristics, similar advertisements will receive between XX and YY applications.
+                        </p>
                         <div id="low_response" class="alert alert-warning" style="display:none">
                             Less than 10 observations, please use estimates with caution.
                         </div>
+                        <div id="arc_div"></div>
+
                     </div>
                 </div>
                 <div id="container" class="tile">
                     <div id="main_tbl_div">
-                        <div id="stats_div" class="stats_class">
-                            <div id="min_div"></div>
-                            <div id="max_div"></div>
-                        </div>
-                        <div id="tbl_div">
-                            <h4 id="ad_count">There are X advertisements:</h4>
-
-                        </div>
+                        <div id="tbl_div"></div>
                     </div>
                 </div>
             </div>
@@ -326,8 +377,8 @@
         src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/temp_css.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="css/temp_css.css">
 
 <script src="javascript/load_param.js"></script>
 <script src="javascript/load_data.js"></script>

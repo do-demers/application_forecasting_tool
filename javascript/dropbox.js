@@ -2,10 +2,10 @@ function load_choice(data) {
 
     var drop_box = function drop_box(sel_data, variable, prefix, start_var, label) {
 
-        if (variable === "Class_Lvl") {
+        if (variable === "level") {
             var current_group = d3.select("#select_grp").property("value");
             var temp_data = _.filter(sel_data, function (row, i) {
-                return _.contains([row.Class_Group], current_group);
+                return _.contains([row.group], current_group);
             });
             var var_list = _.uniq(_.pluck(temp_data, variable)).sort();
 
@@ -44,35 +44,49 @@ function load_choice(data) {
             })
             .text(function (d) {
                 return d;
-            });
-
+            })
+        // .attr("disable", function(d) {
+        //     // debugger;
+        //     return false;
+        // })
         var_select.property("value", start_var);
+
+
     };
 
     //Modify for FR and EN
     if (document.documentElement.lang == "en") {
+
         drop_box(data, "Department", "_dept", start_dept, "Organization:");
-        drop_box(data, "Class_Group", "_grp", start_grp, "Group:");
-        drop_box(data, "Class_Lvl", "_lvl", start_lvl, "Level:");
-        drop_box(data, "Language", "_lang", start_lang, "Language:");
-        drop_box(data, "Region_NCR", "_reg", start_reg, "Work Location:");
-        drop_box(data, "one_position", "_one", start_one, "Positions:");
-        drop_box(data, "int_process", "_int", start_int, "Area of selection:");
+        drop_box(data, "group", "_grp", start_grp, "Group:");
+        drop_box(data, "level", "_lvl", start_lvl, "Level:");
+        drop_box(data, "Language_requirement", "_lang", start_lang, "Language:");
+        drop_box(data, "Locality", "_reg", start_reg, "Work Location:");
+        drop_box(data, "Positions", "_one", start_one, "Positions:");
+        drop_box(data, "process_type", "_aos", start_aos, "Area of selection:");
+        drop_box(data, "ACDMC_LVL_CD", "_aca", start_aca, "Education:");
+        drop_box(data, "ee_restricted", "_ee", start_ee, "EE restriction:");
+
     } else {
         drop_box(data, "Department", "_dept", start_dept, "Organisation:");
-        drop_box(data, "Class_Group", "_grp", start_grp, "Groupe:");
-        drop_box(data, "Class_Lvl", "_lvl", start_lvl, "Niveau:");
-        drop_box(data, "Language", "_lang", start_lang, "Langue:");
-        drop_box(data, "Region_NCR", "_reg", start_reg, "Lieu de travail:");
-        drop_box(data, "one_position", "_one", start_one, "Nombre de postes:");
-        drop_box(data, "int_process", "_int", start_int, "Zone de sélection:");
+        drop_box(data, "group", "_grp", start_grp, "Groupe:");
+        drop_box(data, "level", "_lvl", start_lvl, "Niveau:");
+        drop_box(data, "Language_requirement", "_lang", start_lang, "Langue:");
+        drop_box(data, "Locality", "_reg", start_reg, "Lieu de travail:");
+        drop_box(data, "Positions", "_one", start_one, "Nombre de postes:");
+        drop_box(data, "process_type", "_aos", start_aos, "Zone de sélection:");
+        drop_box(data, "ACDMC_LVL_CD", "_aca", start_aca, "Niveau Academic:");
+        drop_box(data, "ee_restricted", "_ee", start_ee, "Restriction EME:");
     }
 
     //add event on selecting new criteria
-    d3.selectAll(".select_class").on("change", function(){state_change(data);});
+    d3.selectAll(".select_class").on("change", function(){state_change(data, this);});
 }
 
-function state_change(data) {
+function state_change(data, el) {
+
+    d3.selectAll("option")
+        .property("disabled", false);
 
     var current_dept = d3.select("#select_dept").property("value");
     var current_group = d3.select("#select_grp").property("value");
@@ -80,15 +94,17 @@ function state_change(data) {
     var current_lang = d3.select("#select_lang").property("value");
     var current_reg = d3.select("#select_reg").property("value");
     var current_one = d3.select("#select_one").property("value");
-    var current_int = d3.select("#select_int").property("value");
+    var current_aos = d3.select("#select_aos").property("value");
+    var current_aca = d3.select("#select_aca").property("value");
+    var current_ee = d3.select("#select_ee").property("value");
 
-    if (this.id === "select_grp") {
+    if (el.id === "select_grp") {
 
         var new_sel_data = _.filter(data, function (row, i) {
-            return _.contains([row.Class_Group], current_group);
+            return _.contains([row.group], current_group);
         });
 
-        var new_var_list = _.uniq(_.pluck(new_sel_data, "Class_Lvl")).sort();
+        var new_var_list = _.uniq(_.pluck(new_sel_data, "level")).sort();
 
         var new_var_select = d3.select("#select_lvl")
             .selectAll("option")
@@ -126,36 +142,72 @@ function state_change(data) {
     }
 
     var new_tbl_data = _.filter(data, function (row, i) {
-        return (current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
-            && _.contains([row.Class_Group], current_group)
-            && _.contains([row.Class_Lvl], current_lvl)
-            && (current_lang === all_lang_var ? row.Language !== all_lang_var : _.contains([row.Language], current_lang))
-            && (current_reg === all_reg_var ? row.Region_NCR !== all_reg_var : _.contains([row.Region_NCR], current_reg))
-            && _.contains([row.one_position], current_one)
-            && _.contains([row.int_process], current_int);
+
+        return ( current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
+            && (current_aca === all_aca_var ? row.ACDMC_LVL_CD !== all_aca_var : _.contains([row.ACDMC_LVL_CD], current_aca))
+            && _.contains([row.group], current_group)
+            && _.contains([row.level], current_lvl)
+            && (current_lang === all_lang_var ? row.Language_requirement !== all_lang_var : _.contains([row.Language_requirement], current_lang))
+            && (current_reg === all_reg_var ? row.Locality !== all_reg_var : _.contains([row.Locality], current_reg))
+            && _.contains([row.Positions], current_one)
+            && (current_aos === all_aos_var ? row.process_type !== current_aos : _.contains([row.process_type], current_aos))    //Aos filter
+            && row.Department !== all_depts_var
+            && _.contains([row.ee_restricted], current_ee)
+            && row._TYPE_ !== "11111111";
     });
+
 
     var new_pred_data = _.filter(data, function (row, i) {
 
         return _.contains([row.Department], current_dept)
-            && _.contains([row.Class_Group], current_group)
-            && _.contains([row.Class_Lvl], current_lvl)
-            && _.contains([row.Language], current_lang)
-            && _.contains([row.Region_NCR], current_reg)
-            && _.contains([row.one_position], current_one)
-            && _.contains([row.int_process], current_int);
+            && _.contains([row.group], current_group)
+            && _.contains([row.level], current_lvl)
+            && _.contains([row.Language_requirement], current_lang)
+            && _.contains([row.Locality], current_reg)
+            && _.contains([row.Positions], current_one)
+            && _.contains([row.ACDMC_LVL_CD], current_aca)//Academic Level filter
+            && _.contains([row.ee_restricted], current_ee)//ee filter
+            && _.contains([row.process_type], current_aos);
     });
 
-    var obs_data = _.pluck(new_tbl_data, "applications");
+    var obs_data = _.pluck(new_tbl_data, "total_applications");
     var pred_low = _.pluck(new_pred_data, "lower")[0];
     var pred_up = _.pluck(new_pred_data, "upper")[0];
     var in_interval = _.filter(obs_data, function (num) {
         return (pred_low <= num) && (num <= pred_up);
     });
 
-    var accuracy = in_interval.length / obs_data.length;
+
+    disable_option("select_lang", new_tbl_data, "Language_requirement");
+    disable_option("select_reg", new_tbl_data, "Locality");
+    disable_option("select_one", new_tbl_data, "Positions");
+    disable_option("select_aos", new_tbl_data, "process_type");
+    disable_option("select_aca", new_tbl_data, "ACDMC_LVL_CD");
+    disable_option("select_ee", new_tbl_data, "ee_restricted");
 
     //Call datatable and visualisation
-    tbl_change(new_tbl_data, _.without(data.columns, "predicted", "upper", "lower", "Dept_Code", "_TYPE_", "url"));
-    viz_change(new_pred_data,new_tbl_data);
+    tbl_change(new_tbl_data, _.without(data.columns, "predicted", "upper", "lower", "DEPT_CD", "_TYPE_", "POSTER_URL", "group", "level" ,"ee_restricted" ), new_pred_data);
+    viz_change(new_pred_data, new_tbl_data);
+
+}
+
+function disable_option(select, option_data, item) {
+
+    var option_list = _.union(_.uniq(_.pluck(option_data, item)).sort(),"ANY");
+
+    d3.select("#"+select)
+        .selectAll("option")
+        .each(function(d) {
+
+            if (!_.contains(option_list, d)) {
+                d3.select(this).property("disabled", true)
+            }
+
+            if (d3.select(this).property("value") === "ANY") {
+                d3.select(this).property("disabled", false)
+            }
+
+        })
+    ;
+
 }

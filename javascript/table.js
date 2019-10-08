@@ -1,10 +1,31 @@
-function load_table(tbl_data, columns) {
+function load_table(tbl_data, columns, pred_data) {
+
+    var max_appl = _.max(_.pluck(tbl_data, "total_applications"));
+    var min_appl = _.min(_.pluck(tbl_data, "total_applications"));
+    var min_est_appl = _.pluck(pred_data, "lower");
+    var max_est_appl = _.pluck(pred_data, "upper");
 
     //Display number of ads
     d3.select('#ad_count')
-        .text(function () {
-            return "There are " + tbl_data.length + " advertisements";
-        });
+        .html(function () {
+            return '<p>Between April 1st 2015 and March 31st 2019'
+                + ', there were<b> '
+                + tbl_data.length
+                + '</b> advertisement(s) that generated between <b>'
+                + min_appl
+                + '</b> and <b>'
+                + max_appl
+                + '</b> applications. We estimate that for these characteristics, similar advertisements will receive between <b>'
+                + format(min_est_appl)
+                + '</b> and <b>'
+                + format(max_est_appl)
+                + '</b> applications</b>'
+
+        })
+        .style("text-align", "center")
+        .attr("class", "alert alert-info")
+        .style("display", "inline-flex");
+
 
     var table = d3.select('#tbl_div')
         .append('table')
@@ -41,15 +62,15 @@ function load_table(tbl_data, columns) {
                 return {
                     column: column,
                     value: row[column],
-                    link: row["url"]
+                    link: row["POSTER_URL"]
                 };
             });
         })
         .enter()
         .append('td')
         .html(function (d) {
-            if(d.column === "Sel_Process_Nbr"){
-                var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+            if (d.column === "SELECTION_PROCESS_NUMBER") {
+                var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
                 return new_sel_proc;
             }
             else {
@@ -70,44 +91,59 @@ function load_table(tbl_data, columns) {
             }
         ],
         columnDefs: [
-            {
-                // The `data` parameter refers to the data for the cell (defined by the
-                // `data` option, which defaults to the column being worked with, in
-                // this case `data: 0`.
-                "render": function (data, type, row) {
-                    return data + '-' + row[2];
-                },
-                "targets": 1
-            },
-            {"visible": false, "targets": [2]},
-            { "width": "20%", "targets": [9,10]}
+            { width: 80, targets: 3 }
         ]
-
     });
-
 }
 
-function tbl_change(tbl_data, columns) {
+function tbl_change(tbl_data, columns, new_pred_data) {
 
     //Display number of ads
+    var max_appl = _.max(_.pluck(tbl_data, "total_applications"));
+    var min_appl = _.min(_.pluck(tbl_data, "total_applications"));
+    var min_est_appl = _.pluck(new_pred_data, "lower");
+    var max_est_appl = _.pluck(new_pred_data, "upper");
+
     d3.select('#ad_count')
-        .text(function () {
-            return "There are " + tbl_data.length + " advertisements";
-        });
+        .html(function () {
+            return '<p>Between April 1st 2015 and March 31st 2019'
+                + ", there were <b>"
+                + tbl_data.length
+                + "</b> advertisement(s) that generated between <b>"
+                + min_appl
+                + "</b> and <b>"
+                + max_appl
+                + "</b> applications. We estimate that for these characteristics, similar advertisements will receive between <b>"
+                + format(min_est_appl)
+                + "</b> and <b>"
+                + format(max_est_appl)
+                + "</b> applications</p>"
+        })
+        .style("text-align", "center")
+        .attr("class", "alert alert-info")
+        .style("display", "inline-flex");
 
     //Hide warning if it's up from previous data
-    d3.select("#low_response").style("display","none");
+    d3.select("#low_response").style("display", "none");
 
-    if (tbl_data.length <= 10)
-    {
+    if (0 < tbl_data.length && tbl_data.length <= 10) {
         console.log("Warning");
         d3.select("#low_response")
-            .style("display","inline-flex");
+            .text("Less than 10 observations, please use estimates with caution.")
+            .style("display", "inline-flex");
+    }
+
+    if (tbl_data.length == 0) {
+        console.log("Warning");
+        d3.select("#ad_count").style("display", "none");
+        d3.select("#low_response")
+            .text("No data available")
+            .style("display", "inline-flex");
     }
 
     $('#adv_tbl').DataTable().destroy();
 
-    var sorted_data = _.sortBy(tbl_data, 'applications');
+    var sorted_data = _.sortBy(tbl_data, 'total_applications');
 
     var table_u = d3.select('#adv_tbl');
 
@@ -124,24 +160,25 @@ function tbl_change(tbl_data, columns) {
             return {
                 column: column,
                 value: row[column],
-                link: row["POSTER_URL"] };
+                link: row["POSTER_URL"]
+            };
         });
     });
 
     new_tds.html(function (d) {
-        if(d.column === "Sel_Process_Nbr"){
-            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+        if (d.column === "SELECTION_PROCESS_NUMBER") {
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
             return new_sel_proc;
-        }else {
+        } else {
             return d.value;
         }
     });
 
     new_tds.enter().append('td').html(function (d) {
-        if(d.column === "Sel_Process_Nbr"){
-            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">"+ d.value+ "</a>";
+        if (d.column === "SELECTION_PROCESS_NUMBER") {
+            var new_sel_proc = "<a href=" + d.link + " target=\"_blank\">" + d.value + "</a>";
             return new_sel_proc;
-        }else {
+        } else {
             return d.value;
         }
     });
@@ -160,19 +197,8 @@ function tbl_change(tbl_data, columns) {
             }
         ],
         columnDefs: [
-            {
-                // The `data` parameter refers to the data for the cell (defined by the
-                // `data` option, which defaults to the column being worked with, in
-                // this case `data: 0`.
-                "render": function (data, type, row) {
-                    return data + '-' + row[2];
-                },
-                "targets": 1
-            },
-            {"visible": false, "targets": [2]},
-            { "width": "20%", "targets": [9,10]}
+            { width: 80, targets: 3 }
         ]
-
     });
 }
 

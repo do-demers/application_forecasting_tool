@@ -89,13 +89,24 @@ function load_viz(pred_data) {
                 return "translate(-100,75)";
             }
             else if (d.index == 1) {
-                return "translate(" + label.centroid(d) + ")";
+                 // return "translate(" + label.centroid(d) + ")";
             }
             else {
                 return "translate(100,75)";
             }
         })
-        .attr("fill", "black")
+        .style("font-size", function (d) {
+            if (d.index == 0) {
+                return "16px";
+            }
+            else if (d.index == 1) {
+                return "20px";
+            }
+            else {
+                return "16px";
+            }
+        })
+
         .text(function (d) {
             if (d.index == 0) {
                 return table_min;
@@ -112,7 +123,7 @@ function load_viz(pred_data) {
         });
 
     //Add number text
-    doNums(pred_data, new_low, new_high);
+    // doNums(pred_data, new_low, new_high);
 }
 
 function viz_change(pred_data) {
@@ -162,7 +173,7 @@ function viz_change(pred_data) {
                 return "translate(-100,75)";
             }
             else if (d.index == 1) {
-                return "translate(" + label.centroid(d) + ")";
+                // return "translate(" + label.centroid(d) + ")";
             }
             else {
                 return "translate(100,75)";
@@ -181,7 +192,7 @@ function viz_change(pred_data) {
         });
 
     //Add number text
-    doNums(pred_data, new_low, new_high);
+    // doNums(pred_data, new_low, new_high);
 }
 
 function doNums(pred_data, new_low, new_high) {
@@ -224,6 +235,7 @@ function doNums(pred_data, new_low, new_high) {
 
                 if (document.documentElement.lang === "en") {
                     var text_fct = function (t) {
+
                         that.html('<span id="font_intro">For the above characteristics, it is estimated that you will receive between</span>'
                             + '</br>'
                             + '<span id="nums">' + format(i(t)) + ' - ' + format(j(t)) + '</span>'
@@ -247,6 +259,7 @@ function doNums(pred_data, new_low, new_high) {
     }
 
 }
+
 function arcTween(a) {
 
     var i = d3.interpolate(this._current, a);
