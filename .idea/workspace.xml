@@ -6,11 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef9f064-21d8-4220-b64a-3e91cdd10850" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/density.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/dropbox.js" afterPath="$PROJECT_DIR$/javascript/dropbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/load_data.js" afterPath="$PROJECT_DIR$/javascript/load_data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opc-aft-eng.htm" afterPath="$PROJECT_DIR$/opc-aft-eng.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/table.js" afterPath="$PROJECT_DIR$/javascript/table.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,21 +42,19 @@
       <file leaf-file-name="dropbox.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/dropbox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
+            <state relative-caret-position="154">
               <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viz.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/javascript/viz.js">
+      <file leaf-file-name="table.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/javascript/table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="density.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="density.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/density.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -198,12 +193,12 @@
         <option value="$PROJECT_DIR$/template-empty-eng.htm" />
         <option value="$PROJECT_DIR$/javascript/load_param.js" />
         <option value="$PROJECT_DIR$/javascript/viz.js" />
-        <option value="$PROJECT_DIR$/javascript/table.js" />
         <option value="$PROJECT_DIR$/css/temp_css.css" />
         <option value="$PROJECT_DIR$/opc-aft-eng.htm" />
         <option value="$PROJECT_DIR$/javascript/load_data.js" />
         <option value="$PROJECT_DIR$/javascript/dropbox.js" />
         <option value="$PROJECT_DIR$/javascript/density.js" />
+        <option value="$PROJECT_DIR$/javascript/table.js" />
       </list>
     </option>
   </component>
@@ -875,7 +870,7 @@
       <workItem from="1570638319104" duration="461000" />
       <workItem from="1570638892650" duration="10000" />
       <workItem from="1570639942053" duration="831000" />
-      <workItem from="1570709903845" duration="8189000" />
+      <workItem from="1570709903845" duration="8612000" />
     </task>
     <task id="LOCAL-00001" summary=" convert the program to detect the language and change the code to be bilingual">
       <created>1547143833359</created>
@@ -944,7 +939,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359289000" />
+    <option name="totallyTimeSpent" value="359712000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1138,14 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/raw_data/final_raw_data_fr.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1185,17 +1172,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/dropbox.js">
+    <entry file="file://$PROJECT_DIR$/javascript/density.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
+        <state relative-caret-position="51">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/viz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="-4079">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1203,10 +1190,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/density.js">
+    <entry file="file://$PROJECT_DIR$/javascript/dropbox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="154">
+          <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="119" column="41" lean-forward="false" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
           <folding />
         </state>
       </provider>
