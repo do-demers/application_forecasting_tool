@@ -187,7 +187,8 @@ function state_change(data, el) {
 
     //Call datatable and visualisation
     tbl_change(new_tbl_data, _.without(data.columns, "predicted", "upper", "lower", "DEPT_CD", "_TYPE_", "POSTER_URL", "group", "level" ,"ee_restricted" ), new_pred_data);
-    viz_change(new_pred_data, new_tbl_data);
+    updateChart(new_tbl_data)
+    // viz_change(new_pred_data, new_tbl_data);
 
 }
 

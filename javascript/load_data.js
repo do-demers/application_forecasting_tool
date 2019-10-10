@@ -54,7 +54,10 @@ function init() {
         load_table(tbl_data, _.without(data.columns, "predicted", "upper", "lower", "DEPT_CD", "_TYPE_", "POSTER_URL", "group", "level",
             // "ACDMC_LVL_CD",
             "ee_restricted"), pred_data);
-        load_viz(pred_data,tbl_data);
+
+
+        load_density(tbl_data)
+        // load_viz(pred_data,tbl_data);
 
         disable_option("select_lang", tbl_data, "Language_requirement");
         disable_option("select_reg", tbl_data, "Locality");
