@@ -107,13 +107,13 @@ function tbl_change(tbl_data, columns, new_pred_data) {
     d3.select('#ad_count')
         .html(function () {
             return '<p>Between April 1st 2015 and March 31st 2019'
-                + ", there were <b>'
+                + ', there were <b>'
                 + tbl_data.length
                 + '</b> advertisement(s) that generated between <b>'
                 + min_appl
                 + '</b> and <b>'
                 + max_appl
-                + '</b> applications. We estimate that for these characteristics, similar advertisements will receive between <b>
+                + '</b> applications. We estimate that for these characteristics, similar advertisements will receive between <b>'
                 + format(min_est_appl)
                 + '</b> and <b>'
                 + format(max_est_appl)
