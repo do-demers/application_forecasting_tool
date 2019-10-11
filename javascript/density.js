@@ -95,8 +95,16 @@ function kernelEpanechnikov(k) {
 function updateChart(new_data) {
 
         // recompute density estimation
+    var new_x_max = 1.2*_.max(_.pluck(new_data, 'total_applications'))
 
-    new_x_max = 1.2*_.max(_.pluck(new_data, 'total_applications'))
+    if (new_data.length < 10) {
+        new_x_max = _.max(_.pluck(new_data, 'total_applications'))*3
+    }
+
+    if (new_data.length < 2) {
+        new_x_max = 0
+    }
+
 
     xScale
         .domain([0, new_x_max]);
@@ -105,9 +113,15 @@ function updateChart(new_data) {
         .transition()
         .call(d3.axisBottom(xScale));
 
+
     kde = kernelDensityEstimator(kernelEpanechnikov(12), xScale.ticks(40))
     var density =  kde( new_data.map(function(d){  return d.total_applications; }) )
     density[0][1] = 0
+
+    // if (new_data.length < 10) {
+    //     _.map(density, function(i){ i[1] = 0; return i; })
+    //     debugger;
+    // }
 
     //need to calculate max Y and max X
 

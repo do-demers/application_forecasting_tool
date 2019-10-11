@@ -15,10 +15,13 @@ function load_choice(data) {
         }
 
         if (variable === "Department") {
-
             var_list = _.without(var_list, all_depts_var);
             var_list.unshift(all_depts_var)
+        }
 
+        if (variable === "Locality") {
+            var_list = _.without(var_list, all_reg_var);
+            var_list.unshift(all_reg_var)
         }
 
         var var_select = d3.select("#select_div")
