@@ -85,8 +85,11 @@ function load_choice(data) {
 
 function state_change(data, el) {
 
-    d3.selectAll("option")
-        .property("disabled", false);
+
+    if (_.contains(["select_grp", "select_lvl", "select_dept"], el.id)) {
+        d3.selectAll("option")
+            .property("disabled", false);
+    }
 
     var current_dept = d3.select("#select_dept").property("value");
     var current_group = d3.select("#select_grp").property("value");
@@ -142,7 +145,6 @@ function state_change(data, el) {
     }
 
     var new_tbl_data = _.filter(data, function (row, i) {
-
         return ( current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
             && (current_aca === all_aca_var ? row.ACDMC_LVL_CD !== all_aca_var : _.contains([row.ACDMC_LVL_CD], current_aca))
             && _.contains([row.group], current_group)
@@ -155,7 +157,6 @@ function state_change(data, el) {
             && _.contains([row.ee_restricted], current_ee)
             && row._TYPE_ !== "11111111";
     });
-
 
     var new_pred_data = _.filter(data, function (row, i) {
 
@@ -170,31 +171,33 @@ function state_change(data, el) {
             && _.contains([row.process_type], current_aos);
     });
 
-    var obs_data = _.pluck(new_tbl_data, "total_applications");
-    var pred_low = _.pluck(new_pred_data, "lower")[0];
-    var pred_up = _.pluck(new_pred_data, "upper")[0];
-    var in_interval = _.filter(obs_data, function (num) {
-        return (pred_low <= num) && (num <= pred_up);
-    });
+    if (_.contains(["select_grp", "select_lvl", "select_dept"], el.id)) {
 
+        var disable_data = _.filter(data, function (row, i) {
+            return ( current_dept === all_depts_var ? row.Department !== all_depts_var : _.contains([row.Department], current_dept))
+                && _.contains([row.group], current_group)
+                && _.contains([row.level], current_lvl)
+                && row.Department !== all_depts_var
+                && row._TYPE_ !== "11111111";
+        });
 
-    disable_option("select_lang", new_tbl_data, "Language_requirement");
-    disable_option("select_reg", new_tbl_data, "Locality");
-    disable_option("select_one", new_tbl_data, "Positions");
-    disable_option("select_aos", new_tbl_data, "process_type");
-    disable_option("select_aca", new_tbl_data, "ACDMC_LVL_CD");
-    disable_option("select_ee", new_tbl_data, "ee_restricted");
+        disable_option("select_lang", disable_data, "Language_requirement");
+        disable_option("select_reg", disable_data, "Locality");
+        disable_option("select_one", disable_data, "Positions");
+        disable_option("select_aos", disable_data, "process_type");
+        disable_option("select_aca", disable_data, "ACDMC_LVL_CD");
+        disable_option("select_ee", disable_data, "ee_restricted");
+    }
 
     //Call datatable and visualisation
     tbl_change(new_tbl_data, _.without(data.columns, "predicted", "upper", "lower", "DEPT_CD", "_TYPE_", "POSTER_URL", "group", "level" ,"ee_restricted" ), new_pred_data);
     updateChart(new_tbl_data)
-    // viz_change(new_pred_data, new_tbl_data);
 
 }
 
 function disable_option(select, option_data, item) {
 
-    var option_list = _.union(_.uniq(_.pluck(option_data, item)).sort(),"ANY");
+    var option_list = _.union(_.uniq(_.pluck(option_data, item)).sort(),["ANY","Any language requirements","All work locations"]);
 
     d3.select("#"+select)
         .selectAll("option")

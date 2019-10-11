@@ -15,7 +15,7 @@ if (document.documentElement.lang === "en") {
     start_grp = "EC";
     start_lvl = "03";
     start_lang = "Any language requirements";
-    start_reg = "National Capital Region";
+    start_reg = "All work locations";
     start_one = "One Position";
     start_aos = "ANY";
     start_aca = "ANY";

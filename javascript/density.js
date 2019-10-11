@@ -21,13 +21,7 @@ function load_density(data) {
     sorted_data = _.sortBy(_.pluck(data, 'total_applications'))
     // Compute kernel density estimation
 
-    var q1 = sorted_data[Math.floor((data.length / 4))];
-    // Likewise for q3.
-    var q3 = sorted_data[Math.ceil((data.length * (3 / 4)))];
-    var iqr = q3 - q1;
-    var max =_.max(sorted_data);
-    // var_max_appl = q3 + 10*iqr;
-    var_max_appl = 1.2*max;
+    var_max_appl = 1.2*_.max(sorted_data);
 
     // add the x Axis
     // var x = d3.scaleLinear()
@@ -40,6 +34,7 @@ function load_density(data) {
     var density =  kde( data.map(function(d){  return d.total_applications; }) )
 
     density[0][1] = 0
+    new_y_max = 1.2*_.max(_.pluck(density,1))
 
     svg.append("g")
         .attr("class", "xaxis")
@@ -50,7 +45,7 @@ function load_density(data) {
     // var y = d3.scaleLinear()
     yScale
         .range([height, 0])
-        .domain([0, 0.02]);
+        .domain([0, new_y_max]);
 
     svg.append("g")
         .attr("class", "yaxis")
@@ -100,20 +95,8 @@ function kernelEpanechnikov(k) {
 function updateChart(new_data) {
 
         // recompute density estimation
-    kde = kernelDensityEstimator(kernelEpanechnikov(3), xScale.ticks(40))
-    var density =  kde( new_data.map(function(d){  return d.total_applications; }) )
-    density[0][1] = 0
 
-    //need to calculate max Y and max X
-    new_x_max = 1.1*_.max(_.pluck(new_data, 'total_applications'))
-    new_y_max = 1.1*_.max(_.pluck(density,1))
-
-    yScale
-        .domain([0, new_y_max]);
-
-    svg.select(".yaxis")
-        .transition()
-        .call(d3.axisLeft(yScale));
+    new_x_max = 1.2*_.max(_.pluck(new_data, 'total_applications'))
 
     xScale
         .domain([0, new_x_max]);
@@ -121,6 +104,21 @@ function updateChart(new_data) {
     svg.select(".xaxis")
         .transition()
         .call(d3.axisBottom(xScale));
+
+    kde = kernelDensityEstimator(kernelEpanechnikov(12), xScale.ticks(40))
+    var density =  kde( new_data.map(function(d){  return d.total_applications; }) )
+    density[0][1] = 0
+
+    //need to calculate max Y and max X
+
+    new_y_max = 1.2*_.max(_.pluck(density,1))
+
+    yScale
+        .domain([0, new_y_max]);
+
+    svg.select(".yaxis")
+        .transition()
+        .call(d3.axisLeft(yScale));
 
     // update the chart
     svg.select(".mypath")
