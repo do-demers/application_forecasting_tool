@@ -41,6 +41,13 @@ function load_density(data) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xScale));
 
+    svg.append("text")
+        .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top) + ")")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10px")
+        .style("text-anchor", "middle")
+        .text("Applications");
+
     // add the y Axis
     // var y = d3.scaleLinear()
     yScale
@@ -53,7 +60,7 @@ function load_density(data) {
 
 
     // Plot the area
-    var curve = svg
+    svg
         .append('g')
         .append("path")
         .attr("class", "mypath")

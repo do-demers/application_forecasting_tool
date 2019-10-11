@@ -20,8 +20,8 @@ function load_choice(data) {
         }
 
         if (variable === "Locality") {
-            var_list = _.without(var_list, all_reg_var);
-            var_list.unshift(all_reg_var)
+            var_list = _.without(var_list, all_reg_var, "Multiple locations", "National Capital Region");
+            var_list.unshift(all_reg_var, "National Capital Region", "Multiple locations")
         }
 
         var var_select = d3.select("#select_div")
@@ -173,6 +173,7 @@ function state_change(data, el) {
             && _.contains([row.ee_restricted], current_ee)//ee filter
             && _.contains([row.process_type], current_aos);
     });
+
 
     if (_.contains(["select_grp", "select_lvl", "select_dept"], el.id)) {
 
