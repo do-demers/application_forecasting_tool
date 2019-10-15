@@ -56,7 +56,7 @@ function init() {
             "ee_restricted"), pred_data);
 
 
-        load_density(tbl_data)
+        load_density(tbl_data);
         // load_viz(pred_data,tbl_data);
 
         disable_option("select_lang", tbl_data, "Language_requirement");
