@@ -61,7 +61,6 @@ td {
 }
 
 .dataTables_filter {
-    margin-top: 3px;
     float: left !important;
 }
 
@@ -69,6 +68,10 @@ td {
     align-self: center;
     margin: auto;
     width: 120px;
+}
+.dt-buttons{
+    width: 15%;
+    float: right !important;
 }
 #adv_tbl_paginate{
     width: 100%
