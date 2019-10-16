@@ -5,7 +5,7 @@ function init() {
     var pred_data = null;
 
     //load data
-    d3.csv((document.documentElement.lang === "en" ? "raw_data/v5_data_en.csv" : "raw_data/v2_data_fr.csv" ))
+    d3.csv((document.documentElement.lang === "en" ? "raw_data/v5_data_en.csv" : "raw_data/final_data_fr.csv" ))
         .row(function (d) {
             d.total_applications = +d.total_applications;
             d.predicted = +d.predicted;
@@ -15,7 +15,6 @@ function init() {
             return d;
         })
         .get(function (error, rows) {
-
 
             data = rows;// Now you can assign it
 

@@ -58,7 +58,6 @@ function load_density(data) {
         .attr("class", "yaxis")
         .call(d3.axisLeft(yScale));
 
-
     // Plot the area
     svg
         .append('g')

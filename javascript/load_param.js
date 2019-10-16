@@ -30,23 +30,26 @@ if (document.documentElement.lang === "en") {
 //Load Table Parameters
 
     headers = ["Organization", "Language", "Work Location","Number of Positions", "Area of Selection", "Classification",
-            "Education",
-            "Process Number", "Title", "Close Date", "Number of Applications"];
+            "Education", "Process Number", "Title", "Close Date", "Number of Applications"];
+
 }else{
 
     // load_data parameters
     start_dept = "Tous les départements";
     start_grp = "EC";
     start_lvl = "03";
-    start_lang = "Toutes les exigences";
-    start_reg = "RCN";
-    start_one = "Plusieurs postes";
-    start_aos = "Processus Interne";
-
+    start_lang = "ANY";
+    start_reg = "ANY";
+    start_one = "Un poste";
+    start_aos = "Toutes types de processus";
+    start_aca = "Tous niveaux d'éducation";
+    start_ee = "Non";
 
     all_depts_var= "Tous les départements";
-    all_lang_var= "Toutes les exigences";
-    all_reg_var= "Toutes les régions";
+    all_lang_var= "ANY";
+    all_reg_var= "ANY";
+    all_aca_var= "Tous niveaux d'éducation";
+    all_aos_var= "Toutes types de processus";
 
 //Load Table Parameters
 
