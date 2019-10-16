@@ -47,7 +47,7 @@ function load_choice(data) {
             })
             .text(function (d) {
                 return d;
-            })
+            });
         // .attr("disable", function(d) {
         //     // debugger;
         //     return false;
