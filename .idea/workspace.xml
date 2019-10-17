@@ -5,12 +5,12 @@
     <option name="CUSTOM_SCOPE_NAME" value="Selection" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cef9f064-21d8-4220-b64a-3e91cdd10850" name="Default" comment="-Fixed IE appearance issues by modifying CSS, closing hanging lines of code with semicolons.">
+    <list default="true" id="cef9f064-21d8-4220-b64a-3e91cdd10850" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/temp_css.css" afterPath="$PROJECT_DIR$/css/temp_css.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/density.js" afterPath="$PROJECT_DIR$/javascript/density.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/dropbox.js" afterPath="$PROJECT_DIR$/javascript/dropbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/load_data.js" afterPath="$PROJECT_DIR$/javascript/load_data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opc-aft-eng.htm" afterPath="$PROJECT_DIR$/opc-aft-eng.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opc-aft-fra.htm" afterPath="$PROJECT_DIR$/opc-aft-fra.htm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,21 +22,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="opc-aft-eng.htm" pinned="false" current-in-tab="false">
+      <file leaf-file-name="opc-aft-eng.htm" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opc-aft-eng.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="340" column="11" lean-forward="false" selection-start-line="340" selection-start-column="11" selection-end-line="340" selection-end-column="11" />
+            <state relative-caret-position="524">
+              <caret line="589" column="45" lean-forward="true" selection-start-line="589" selection-start-column="45" selection-end-line="589" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp_css.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="opc-aft-fra.htm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opc-aft-fra.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="237" column="49" lean-forward="true" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="temp_css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/temp_css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="103" column="16" lean-forward="true" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+            <state relative-caret-position="538">
+              <caret line="72" column="13" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -45,9 +55,15 @@
       <file leaf-file-name="load_data.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/load_data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="1037">
+              <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+              <folding>
+                <marker date="1571337062813" expanded="true" signature="16:3265" ph="{...}" />
+                <marker date="1571337062813" expanded="true" signature="543:2533" ph="{...}" />
+                <marker date="1571337062813" expanded="true" signature="651:1826" ph="{...}" />
+                <marker date="1571337062813" expanded="true" signature="1887:2500" ph="{...}" />
+                <marker date="1571337062813" expanded="true" signature="2557:3263" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,9 +71,13 @@
       <file leaf-file-name="load_param.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/load_param.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding>
+                <marker date="1571337062817" expanded="true" signature="467:1100" ph="{...}" />
+                <marker date="1571337062817" expanded="true" signature="969:1100" ph="[...]" />
+                <marker date="1571337062817" expanded="true" signature="1659:1890" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,8 +95,8 @@
       <file leaf-file-name="table.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+            <state relative-caret-position="604">
+              <caret line="193" column="35" lean-forward="true" selection-start-line="193" selection-start-column="35" selection-end-line="193" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -85,8 +105,8 @@
       <file leaf-file-name="density.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/density.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -104,16 +124,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="final_raw_data_fr.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/raw_data/final_raw_data_fr.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="147" lean-forward="false" selection-start-line="0" selection-start-column="132" selection-end-line="0" selection-end-column="147" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -125,8 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>length</find>
-      <find>dispa</find>
       <find>font</find>
       <find>height</find>
       <find>span</find>
@@ -152,8 +160,10 @@
       <find>low_response</find>
       <find>new_pred_data</find>
       <find>updateChart</find>
-      <find>arc_div</find>
       <find>select</find>
+      <find>dt</find>
+      <find>arc_div</find>
+      <find>axis</find>
       <find>arc</find>
     </findStrings>
     <replaceStrings>
@@ -217,13 +227,14 @@
         <option value="$PROJECT_DIR$/build/test_js.js" />
         <option value="$PROJECT_DIR$/template-empty-eng.htm" />
         <option value="$PROJECT_DIR$/javascript/viz.js" />
-        <option value="$PROJECT_DIR$/opc-aft-eng.htm" />
         <option value="$PROJECT_DIR$/javascript/load_param.js" />
         <option value="$PROJECT_DIR$/javascript/table.js" />
         <option value="$PROJECT_DIR$/javascript/load_data.js" />
         <option value="$PROJECT_DIR$/javascript/dropbox.js" />
+        <option value="$PROJECT_DIR$/opc-aft-fra.htm" />
         <option value="$PROJECT_DIR$/javascript/density.js" />
         <option value="$PROJECT_DIR$/css/temp_css.css" />
+        <option value="$PROJECT_DIR$/opc-aft-eng.htm" />
       </list>
     </option>
   </component>
@@ -276,6 +287,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application_forecasting_tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application_forecasting_tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application_forecasting_tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raw_data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -881,7 +906,7 @@
       <workItem from="1570639942053" duration="831000" />
       <workItem from="1570709903845" duration="8863000" />
       <workItem from="1570797128289" duration="10013000" />
-      <workItem from="1571162346250" duration="1861000" />
+      <workItem from="1571162346250" duration="15228000" />
     </task>
     <task id="LOCAL-00001" summary=" convert the program to detect the language and change the code to be bilingual">
       <created>1547143833359</created>
@@ -946,11 +971,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558640520682</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="-Fixed IE appearance issues by modifying CSS, closing hanging lines of code with semicolons.">
+      <created>1571165579690</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571165579690</updated>
+    </task>
+    <task id="LOCAL-00011" summary="-Moved export buttons to right side of datatable and on same line as search bar">
+      <created>1571167828542</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571167828542</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371837000" />
+    <option name="totallyTimeSpent" value="385204000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -967,18 +1006,19 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49464667" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22093023" sideWeight="0.4946695" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -992,43 +1032,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18736617" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49464667" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18736617" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33940044" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40086675" sideWeight="0.4946695" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1071,7 +1077,8 @@
     <MESSAGE value="Made WET-style warning for cases with less than 10 applications (alerts are missing from extranet styling)" />
     <MESSAGE value="-Fixed overall styling by switching page structure from PSC Extranet to GC WET&#10;-Minor additional datatable styling&#10;-Fixed selection process links in datatable" />
     <MESSAGE value="-Fixed IE appearance issues by modifying CSS, closing hanging lines of code with semicolons." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fixed IE appearance issues by modifying CSS, closing hanging lines of code with semicolons." />
+    <MESSAGE value="-Moved export buttons to right side of datatable and on same line as search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Moved export buttons to right side of datatable and on same line as search bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1152,33 +1159,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/raw_data/final_raw_data.csv">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/opc-aft-fra.htm">
+    <entry file="file://F:/MyFiles/intelliJ/appl_predictor/javascript/dropboxold.js" />
+    <entry file="file://$PROJECT_DIR$/appl_forecasting_fr_old.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4420">
-          <caret line="260" column="13" lean-forward="false" selection-start-line="260" selection-start-column="13" selection-end-line="260" selection-end-column="13" />
+        <state relative-caret-position="813">
+          <caret line="244" column="25" lean-forward="true" selection-start-line="244" selection-start-column="25" selection-end-line="244" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/raw_data/final_raw_data_fr.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="147" lean-forward="false" selection-start-line="0" selection-start-column="132" selection-end-line="0" selection-end-column="147" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/MyFiles/intelliJ/appl_predictor/javascript/dropboxold.js" />
-    <entry file="file://$PROJECT_DIR$/javascript/load_data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="17">
+          <caret line="1" column="87" lean-forward="true" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
           <folding />
         </state>
       </provider>
@@ -1193,18 +1186,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appl_forecasting_fr_old.html">
+    <entry file="file://$PROJECT_DIR$/javascript/load_param.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="244" column="25" lean-forward="true" selection-start-line="244" selection-start-column="25" selection-end-line="244" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <marker date="1571337062817" expanded="true" signature="467:1100" ph="{...}" />
+            <marker date="1571337062817" expanded="true" signature="969:1100" ph="[...]" />
+            <marker date="1571337062817" expanded="true" signature="1659:1890" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/load_data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+          <folding>
+            <marker date="1571337062813" expanded="true" signature="16:3265" ph="{...}" />
+            <marker date="1571337062813" expanded="true" signature="543:2533" ph="{...}" />
+            <marker date="1571337062813" expanded="true" signature="651:1826" ph="{...}" />
+            <marker date="1571337062813" expanded="true" signature="1887:2500" ph="{...}" />
+            <marker date="1571337062813" expanded="true" signature="2557:3263" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raw_data/final_raw_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-905536">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="176" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/density.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="646">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1219,32 +1238,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        <state relative-caret-position="604">
+          <caret line="193" column="35" lean-forward="true" selection-start-line="193" selection-start-column="35" selection-end-line="193" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/load_param.js">
+    <entry file="file://$PROJECT_DIR$/opc-aft-fra.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/opc-aft-eng.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="340" column="11" lean-forward="false" selection-start-line="340" selection-start-column="11" selection-end-line="340" selection-end-column="11" />
+        <state relative-caret-position="453">
+          <caret line="237" column="49" lean-forward="true" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/temp_css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="103" column="16" lean-forward="true" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+        <state relative-caret-position="538">
+          <caret line="72" column="13" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opc-aft-eng.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="589" column="45" lean-forward="true" selection-start-line="589" selection-start-column="45" selection-end-line="589" selection-end-column="45" />
           <folding />
         </state>
       </provider>

@@ -184,41 +184,52 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
                 As such, totals derived from this tool might not reflect those published in the
                 PSC's Annual Report. </p>
 
-            <p>The education field is derived from the education section of the essential qualifications of a ob advertisement.
-                The information was gathered using an innovative text analysis approach that found words associated with education,
-                (eg: law degree, two years of post-secondary education) and categorized them into the following 8
-                education levels:
-            <ul>
-                <li>Education not listed in essential qualifications</li>
-                <li>Some high school</li>
-                <li>High school diploma</li>
-                <li>Some post-secondary</li>
-                <li>Completion of post-secondary (including CÉGEP, College and Bachelor’s)</li>
-                <li>Professional degree (including Law degree and Medical degrees</li>
-                <li>Master’s degree</li>
-                <li>Ph.D. or higher degree</li>
-            </ul>
-            Where the essential qualification lists two possible levels of education, such as requiring a Bachelor’s
-            OR a Master’s degree, the lower qualification is listed.
-            </p>
+            <details>
+                <summary>More information</summary>
+                <p>The education field is derived from the education section of the essential qualifications of a ob
+                    advertisement.
+                    The information was gathered using an innovative text analysis approach that found words associated with
+                    education,
+                    (eg: law degree, two years of post-secondary education) and categorized them into the following 8
+                    education levels:
+                <ul>
+                    <li>Education not listed in essential qualifications</li>
+                    <li>Some high school</li>
+                    <li>High school diploma</li>
+                    <li>Some post-secondary</li>
+                    <li>Completion of post-secondary (including CÉGEP, College and Bachelor’s)</li>
+                    <li>Professional degree (including Law degree and Medical degrees</li>
+                    <li>Master’s degree</li>
+                    <li>Ph.D. or higher degree</li>
+                </ul>
+                Where the essential qualification lists two possible levels of education, such as requiring a Bachelor’s
+                OR a Master’s degree, the lower qualification is listed.
+                </p>
 
-            <p>The process type field is derived from the “Who can apply” section at the beginning of a job advertisement.
-                We used a <i>Name-Entity Recognition</i> (NER) technique to extract the organisations, locations and occupational groups
-                listed in the area of selection. These entities correspond to the three types of eligibility criteria
-                allowable for the area of selection, as outlined in the Public Service Employment Act. Using these tags,
-                we then categorized the jobs into four process types:
-            <ul>
-                <li>External process: These are jobs open to the public.</li>
-                <li>Internal process, Open: These are jobs open to all public servants in Canada.</li>
-                <li>Internal process, NCR: These jobs are open to all public servants in the National Capital Region.</li>
-                <li>Internal process, Other: These jobs use one or more eligibility criteria in their area of selection.</li>
-            </ul>
-            For example: all employees of Parks Canada in the Western Region or all employees at level EX minus one.</p>
+                <p>The process type field is derived from the “Who can apply” section at the beginning of a job
+                    advertisement.
+                    We used a <i>Name-Entity Recognition</i> (NER) technique to extract the organisations, locations and
+                    occupational groups
+                    listed in the area of selection. These entities correspond to the three types of eligibility criteria
+                    allowable for the area of selection, as outlined in the Public Service Employment Act. Using these tags,
+                    we then categorized the jobs into four process types:
+                <ul>
+                    <li>External process: These are jobs open to the public.</li>
+                    <li>Internal process, Open: These are jobs open to all public servants in Canada.</li>
+                    <li>Internal process, NCR: These jobs are open to all public servants in the National Capital Region.
+                    </li>
+                    <li>Internal process, Other: These jobs use one or more eligibility criteria in their area of
+                        selection.
+                    </li>
+                </ul>
+                For example: all employees of Parks Canada in the Western Region or all employees at level EX minus one.</p>
 
-            <p>Both of these categories were derived using innovative natural language processing algorithms to
-                to turn unstructured text fields, like to “Who can apply” and the “education section” of job advertisements,
-                into structured text. The main benefit of using such algorithms is to maximize information extraction
-                to develop analysis and tools, such as the <i>Application Forecasting Tool</i>.</p>
+                <p>Both of these categories were derived using innovative natural language processing algorithms to
+                    to turn unstructured text fields, like to “Who can apply” and the “education section” of job
+                    advertisements,
+                    into structured text. The main benefit of using such algorithms is to maximize information extraction
+                    to develop analysis and tools, such as the <i>Application Forecasting Tool</i>.</p>
+            </details>
 
             <div id="chart" class="panel panel-info">
                 <header class="panel-heading">

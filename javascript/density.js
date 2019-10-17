@@ -1,5 +1,5 @@
 
-var margin = {top: 30, right: 30, bottom: 30, left: 50},
+var margin = {top: 10, right: 5, bottom: 30, left: 60},
     width = 800 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
@@ -10,7 +10,7 @@ var svg = d3.select("#arc_div")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+        "translate(" + margin.left + ", 0)");
 
 var xScale = d3.scaleLinear();
 var yScale = d3.scaleLinear();
@@ -41,12 +41,23 @@ function load_density(data) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xScale));
 
+    //Add axis title for y axis
     svg.append("text")
-        .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top) + ")")
+        .attr("transform", "translate(" + (width/2) + " ," + (height + margin.bottom) + ")")
         .attr("font-family", "sans-serif")
-        .attr("font-size", "10px")
+        .attr("font-size", "12px")
         .style("text-anchor", "middle")
         .text("Applications");
+
+    //Add axis title for y axis
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -40)
+        .style("text-anchor", "end")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .style("fill", "black")
+        .text("Proportion of posters");
 
     // add the y Axis
     // var y = d3.scaleLinear()
