@@ -2,8 +2,7 @@
 <!-- saved from url=(0050)file:///C:/Users/ddemers/Desktop/psc_canada_ca.htm -->
 
 
-<html class="js backgroundsize borderimage csstransitions fontface svg details progressbar meter no-mathml cors xlargeview" lang="fr" dir="ltr" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+<html class="js backgroundsize borderimage csstransitions fontface svg details progressbar meter no-mathml cors xlargeview" lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="IE=11.0000" http-equiv="X-UA-Compatible">
          
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
  <title>Public Service Commission - Canada.ca</title> 
@@ -18,8 +17,8 @@
 <meta content="The Public Service Commission (PSC) is dedicated to building a public service that strives for excellence. We protect merit, non-partisanship, representativeness and the use of both official languages. We safeguard the integrity of staffing in the public service and the political impartiality of public servants. We develop policies and guidance for public service managers and hold them accountable for their staffing decisions. We conduct audits and investigations to confirm the effectiveness of the staffing system and to make improvements. As an independent agency, we report our results to Parliament. We recruit talented Canadians to the public service, drawn from across the country. We continually renew our recruitment services to meet the needs of a modern and innovative public service. " property="dcterms:description">				 
 <meta content="Public Service Commission of Canada" property="dcterms.creator">
 		 
-<meta content="Public Service Commission of Canada" property="dcterms:creator">
-
+<meta content="Public Service Commission of Canada" property="dcterms:creator">	
+				 
 <meta title="ISO639-2/T" content="eng" property="dcterms.language">		 
 <meta title="ISO639-2/T" content="eng" property="dcterms:language">				 
 <meta title="gccore" content="HE Health and Safety;Safety;Public safety" property="dcterms.subject">		 
@@ -38,10 +37,10 @@
 <meta name="dcterms.identifier" content="Public_Service_Commission_of_Canada">	  
            
 <script async="" src="file://www.googletagmanager.com/gtm.js?id=GTM-TLGQ9K"></script>
-<script src="PSC_dd_files/satelliteLib-78cf42deb149c9766cbaaa6151e252b9b67c0200.js.download"></script>
-  <link href="PSC_dd_files/clientlib-all.min.css" rel="stylesheet" type="text/css">
+<script src="../PSC_dd_files/satelliteLib-78cf42deb149c9766cbaaa6151e252b9b67c0200.js.download"></script>
+  <link href="../PSC_dd_files/clientlib-all.min.css" rel="stylesheet" type="text/css">
 
-  <link href="PSC_dd_files/theme.css" rel="stylesheet"> <!--[if gte IE 9 | !IE ]><!-->
+  <link href="../PSC_dd_files/theme.css" rel="stylesheet"> <!--[if gte IE 9 | !IE ]><!-->
   <link href="file:///C:/etc/designs/canada/wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon"> <!--<![endif]--> <!--[if lt IE 9]>
 <link href="/etc/designs/canada/wet-boew/assets/favicon.ico" rel="shortcut icon" />
 <link rel="stylesheet" href="/etc/designs/canada/wet-boew/css/ie8-wet-boew.min.css" />
@@ -51,7 +50,7 @@
 <noscript>&amp;lt;link rel="stylesheet" 
 href="/etc/designs/canada/wet-boew/css/noscript.min.css"/&amp;gt;</noscript> 
 <script>dataLayer = []; dataLayer1 = [];</script>
-<meta name="GENERATOR" content="MSHTML 11.00.9600.18817"><script src="PSC_dd_files/s-code-contents-69cce4f42ae039e7c3974e2fa4292c5e7ad592ab.js.download"></script></head>
+<meta name="GENERATOR" content="MSHTML 11.00.9600.18817"><script src="../PSC_dd_files/s-code-contents-69cce4f42ae039e7c3974e2fa4292c5e7ad592ab.js.download"></script></head>
 <body class="secondary" typeof="WebPage" vocab="http://schema.org/"><noscript>&amp;lt;iframe title="Google Tag Manager GCWeb" 
 src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" 
 style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript> 
@@ -248,6 +247,7 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
 	<div id="container">
 		<svg></svg>
 		<div id="num_div">
+            <div id="low_response" class="alert alert-warning" style="display:none">less than 10 observations, please use estimates with caution</div>
 			<div id="IC_div"></div>
 		</div>
 
@@ -262,18 +262,22 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
 			fill-out our feedback form...
 			</a>
 		</p>
+
 		</div>
 	</div>
 	<div id="main_tbl_div">
         <div id="stats_div" class="stats_class">
             <div id="min_div" > Minimum: 55 </div>
             <div id="max_div" > Maximum: 75 </div>
-         </div>
-        <div id="btn_div">
-            <a class="btn btn-primary" id="exp_data" href="#">Cliquez ici pour télécharger</a>
         </div>
-        <div id="tbl_div"> </div>
-	</div>
+
+       <div id="btn_div">
+             <a class="btn btn-primary" id="exp_data" href="#">Click here to Download</a>
+        </div>
+        <div id="tbl_div"></div>
+
+       	</div>
+
 </div>
 
 	
@@ -282,17 +286,16 @@ style="display:none;visibility:hidden"&amp;gt;&amp;lt;/iframe&amp;gt;</noscript>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
-        <script type="text/javascript" src="javascript/D3/d3.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/temp_css.css">
+        <script type="text/javascript" src="../javascript/D3/d3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/temp_css.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="javascript/load_param.js"></script>
-        <script src="javascript/load_data.js"></script>
-        <script src="javascript/dropbox.js"></script>
-        <script src="javascript/viz.js"></script>
-        <script src="javascript/table.js"></script>
+        <script src="../javascript/load_param.js"></script>
+        <script src="../javascript/load_data.js"></script>
+        <script src="../javascript/dropbox.js"></script>
+        <script src="../javascript/viz.js"></script>
+        <script src="../javascript/table.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
 
  <!--[if gte IE 9 | !IE ]><!--> 
 

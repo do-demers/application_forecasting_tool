@@ -34,6 +34,7 @@ function load_density(data) {
     var density =  kde( data.map(function(d){  return d.total_applications; }) );
 
     density[0][1] = 0;
+
     new_y_max = 1.2*_.max(_.pluck(density,1));
 
     svg.append("g")
@@ -64,7 +65,7 @@ function load_density(data) {
         .append("path")
         .attr("class", "mypath")
         .datum(density)
-        .attr("fill", "#69b3a2")
+        .attr("fill", "#335075")
         .attr("opacity", ".8")
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
@@ -123,11 +124,8 @@ function updateChart(new_data) {
     kde = kernelDensityEstimator(kernelEpanechnikov(12), xScale.ticks(40));
     var density =  kde( new_data.map(function(d){  return d.total_applications; }) );
     density[0][1] = 0;
+    density[density.length-1][1] = 0
 
-    // if (new_data.length < 10) {
-    //     _.map(density, function(i){ i[1] = 0; return i; })
-    //     debugger;
-    // }
 
     //need to calculate max Y and max X
 
