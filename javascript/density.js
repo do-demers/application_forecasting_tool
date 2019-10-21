@@ -31,6 +31,7 @@ function load_density(data) {
 
     // Compute kernel density estimation
     var kde = kernelDensityEstimator(kernelEpanechnikov(12), xScale.ticks(40));
+    // var kde = kernelDensityEstimator(kernelGauss(12), xScale.ticks(40));
     var density =  kde( data.map(function(d){  return d.total_applications; }) );
 
     density[0][1] = 0;
@@ -60,27 +61,27 @@ function load_density(data) {
         .attr("font-size", "12px")
         .style("font-weight", "bold")
         .style("text-anchor", "middle")
-        .text("Proportion of posters");
+        .text("Probability Density");
 
     //Add description for y axis
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("x", -10)
-        .attr("y", -40)
-        .style("text-anchor", "end")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "12px")
-        .text("Larger");
-
-    //Add description for y axis
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -40)
-        .attr("x", -height)
-        .style("text-anchor", "start")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "12px")
-        .text("Smaller");
+    // svg.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("x", -10)
+    //     .attr("y", -40)
+    //     .style("text-anchor", "end")
+    //     .attr("font-family", "sans-serif")
+    //     .attr("font-size", "12px")
+    //     .text("Larger");
+    //
+    // //Add description for y axis
+    // svg.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", -40)
+    //     .attr("x", -height)
+    //     .style("text-anchor", "start")
+    //     .attr("font-family", "sans-serif")
+    //     .attr("font-size", "12px")
+    //     .text("Smaller");
 
     // add the y Axis
     // var y = d3.scaleLinear()
@@ -132,6 +133,14 @@ function kernelEpanechnikov(k) {
     };
 }
 
+function kernelGauss(k) {
+    return function(v) {
+        // debugger;
+        return (1/(Math.sqrt(2*Math.PI)) * Math.exp(-0.5*Math.pow(v,2)));
+    };
+}
+
+
 function updateChart(new_data) {
 
         // recompute density estimation
@@ -155,13 +164,12 @@ function updateChart(new_data) {
 
 
     kde = kernelDensityEstimator(kernelEpanechnikov(12), xScale.ticks(40));
-    var density =  kde( new_data.map(function(d){  return d.total_applications; }) );
+    // kde = kernelDensityEstimator(kernelGauss(12), xScale.ticks(40));
+        var density =  kde( new_data.map(function(d){  return d.total_applications; }) );
     density[0][1] = 0;
-    density[density.length-1][1] = 0
-
+    density[density.length-1][1] = 0;
 
     //need to calculate max Y and max X
-
     new_y_max = 1.2*_.max(_.pluck(density,1));
 
     yScale
@@ -181,4 +189,5 @@ function updateChart(new_data) {
             .x(function(d) { return xScale(d[0]); })
             .y(function(d) { return yScale(d[1]); })
         );
+
 }
