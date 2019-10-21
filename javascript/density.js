@@ -1,5 +1,5 @@
 
-var margin = {top: 30, right: 30, bottom: 30, left: 50},
+var margin = {top: 0, right: 5, bottom: 35, left: 60},
     width = 800 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
@@ -42,12 +42,45 @@ function load_density(data) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xScale));
 
+    //Add axis title for x axis
     svg.append("text")
-        .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top) + ")")
+        .attr("transform", "translate(" + (width/2) + " ," + (height + margin.bottom-5) + ")")
         .attr("font-family", "sans-serif")
-        .attr("font-size", "10px")
+        .attr("font-size", "12px")
+        .style("font-weight", "bold")
         .style("text-anchor", "middle")
         .text("Applications");
+
+    //Add axis title for y axis
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -1*height/2)
+        .attr("y", -40)
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .style("font-weight", "bold")
+        .style("text-anchor", "middle")
+        .text("Proportion of posters");
+
+    //Add description for y axis
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -10)
+        .attr("y", -40)
+        .style("text-anchor", "end")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .text("Larger");
+
+    //Add description for y axis
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -40)
+        .attr("x", -height)
+        .style("text-anchor", "start")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .text("Smaller");
 
     // add the y Axis
     // var y = d3.scaleLinear()
