@@ -6,7 +6,7 @@ console.log(document.documentElement.lang);
 var format = d3.format("d");
 
 var start_dept, start_grp, start_lvl, start_lang, start_reg, start_one, start_aos, start_aca, all_aca_var, start_ee,
-    all_depts_var, all_lang_var, all_reg_var, all_aos_var, headers;
+    all_depts_var, all_lang_var, all_reg_var, all_aos_var, headers, NCR_Multi_reg;
 
 if (document.documentElement.lang === "en") {
 
@@ -27,6 +27,9 @@ if (document.documentElement.lang === "en") {
     all_aca_var= "ANY";
     all_aos_var= "ANY";
 
+    NCR_Multi_reg = ["National Capital Region", "Multiple locations"]
+
+
 //Load Table Parameters
 
     headers = ["Organization", "Language", "Work Location","Number of Positions", "Area of Selection", "Classification",
@@ -38,23 +41,25 @@ if (document.documentElement.lang === "en") {
     start_dept = "Tous les départements";
     start_grp = "EC";
     start_lvl = "03";
-    start_lang = "ANY";
-    start_reg = "ANY";
+    start_lang = "Toutes les exigences";
+    start_reg = "Toutes les régions";
     start_one = "Un poste";
-    start_aos = "Toutes types de processus";
-    start_aca = "Tous niveaux d'éducation";
+    start_aos = "Tous les types de processus";
+    start_aca = "Tous les niveaux d'éducation";
     start_ee = "Non";
 
     all_depts_var= "Tous les départements";
-    all_lang_var= "ANY";
-    all_reg_var= "ANY";
-    all_aca_var= "Tous niveaux d'éducation";
-    all_aos_var= "Toutes types de processus";
+    all_lang_var= "Toutes les exigences";
+    all_reg_var= "Toutes les régions";
+    all_aca_var= "Tous les niveaux d'éducation";
+    all_aos_var= "Tous les types de processus";
+
+    NCR_Multi_reg = ["Plusieurs régions", "Région de la capitale nationale"]
 
 //Load Table Parameters
 
-    headers = ["Organisation", "Groupe", "Niveau", "Langue", "Région", "nombre de Postes", "Zone de sélection",
-        "Numéro de processus", "Titre", "Date de fermeture","Nombre de candidatures"];
+    headers = ["Organisation", "Langue",  "Région", "nombre de Postes", "Zone de sélection", "Classification",
+        "Education", "Numéro de processus", "Titre", "Date de fermeture","Nombre de candidatures"];
 
 }
 

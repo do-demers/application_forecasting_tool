@@ -5,7 +5,7 @@ function init() {
     var pred_data = null;
 
     //load data
-    d3.csv((document.documentElement.lang === "en" ? "raw_data/v5_data_en.csv" : "raw_data/final_data_fr.csv" ))
+    d3.csv((document.documentElement.lang === "en" ? "raw_data/v5_data_en.csv" : "raw_data/final_data_fr_new_labels.csv" ))
         .row(function (d) {
             d.total_applications = +d.total_applications;
             d.predicted = +d.predicted;
@@ -30,6 +30,7 @@ function init() {
                     && (start_aos === all_aos_var ? row.process_type !== start_aos : _.contains([row.process_type], start_aos))    //Aos filter
                     && _.contains([row.ee_restricted], start_ee)  //ee filter
                     && row._TYPE_ !== "11111111" //Remove "ALL" filter
+                    // && row._TYPE_ !== "11110111" //Remove "ALL" filter
                     ;
             });
 

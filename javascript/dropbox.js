@@ -20,8 +20,10 @@ function load_choice(data) {
         }
 
         if (variable === "Locality") {
-            var_list = _.without(var_list, all_reg_var, "Multiple locations", "National Capital Region");
-            var_list.unshift(all_reg_var, "National Capital Region", "Multiple locations")
+            var_list = _.without(var_list, all_reg_var, NCR_Multi_reg);
+            var_list.unshift(NCR_Multi_reg[0])
+            var_list.unshift(NCR_Multi_reg[1])
+            var_list.unshift(all_reg_var)
         }
 
         var var_select = d3.select("#select_div")
@@ -158,7 +160,9 @@ function state_change(data, el) {
             && (current_aos === all_aos_var ? row.process_type !== current_aos : _.contains([row.process_type], current_aos))    //Aos filter
             && row.Department !== all_depts_var
             && _.contains([row.ee_restricted], current_ee)
-            && row._TYPE_ !== "11111111";
+            && row._TYPE_ !== "11111111"
+            // && row._TYPE_ !== "11110111"
+            ;
     });
 
     var new_pred_data = _.filter(data, function (row, i) {
@@ -182,7 +186,10 @@ function state_change(data, el) {
                 && _.contains([row.group], current_group)
                 && _.contains([row.level], current_lvl)
                 && row.Department !== all_depts_var
-                && row._TYPE_ !== "11111111";
+                && row._TYPE_ !== "11111111"
+                // && row._TYPE_ !== "11110111"
+                ;
+
         });
 
         disable_option("select_lang", disable_data, "Language_requirement");
@@ -201,7 +208,7 @@ function state_change(data, el) {
 
 function disable_option(select, option_data, item) {
 
-    var option_list = _.union(_.uniq(_.pluck(option_data, item)).sort(),["ANY","Any language requirements","All work locations"]);
+    var option_list = _.union(_.uniq(_.pluck(option_data, item)).sort(),["ANY", all_depts_var, all_lang_var, all_reg_var, all_aca_var, all_aos_var, NCR_Multi_reg]);
 
     d3.select("#"+select)
         .selectAll("option")
