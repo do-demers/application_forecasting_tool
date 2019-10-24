@@ -2,28 +2,32 @@ function load_choice(data) {
 
     var drop_box = function drop_box(sel_data, variable, prefix, start_var, label) {
 
+        var var_list = _.uniq(_.pluck(sel_data, variable)).sort();
+
         if (variable === "level") {
             var current_group = d3.select("#select_grp").property("value");
+
             var temp_data = _.filter(sel_data, function (row, i) {
                 return _.contains([row.group], current_group);
             });
-            var var_list = _.uniq(_.pluck(temp_data, variable)).sort();
 
-        }
-        else {
-            var var_list = _.uniq(_.pluck(sel_data, variable)).sort();
-        }
+            var_list = _.uniq(_.pluck(temp_data, variable)).sort();
 
-        if (variable === "Department") {
+        } else if (variable === "Department") {
             var_list = _.without(var_list, all_depts_var);
             var_list.unshift(all_depts_var)
-        }
-
-        if (variable === "Locality") {
+        } else if (variable === "Locality") {
             var_list = _.without(var_list, all_reg_var, NCR_Multi_reg);
             var_list.unshift(NCR_Multi_reg[0])
             var_list.unshift(NCR_Multi_reg[1])
             var_list.unshift(all_reg_var)
+        } else if (variable === "process_type") {
+            var_list = _.without(var_list, all_aos_var);
+            var_list.unshift(all_aos_var)
+
+        } else if (variable === "ACDMC_LVL_CD") {
+            var_list = _.without(var_list, all_aca_var);
+            var_list.unshift(all_aca_var)
         }
 
         var var_select = d3.select("#select_div")
