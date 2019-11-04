@@ -53,13 +53,12 @@ function load_choice(data) {
             })
             .text(function (d) {
                 return d;
-            });
-        // .attr("disable", function(d) {
-        //     // debugger;
-        //     return false;
-        // })
-        var_select.property("value", start_var);
+            })
+            .style('color', function(d) {
+                return _.contains(var_estimates, d) ? 'rgb(211, 8, 12)' : 'black';
+            })
 
+        var_select.property("value", start_var);
 
     };
 

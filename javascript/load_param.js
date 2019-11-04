@@ -35,6 +35,17 @@ if (document.documentElement.lang === "en") {
     headers = ["Organization", "Language", "Work Location","Number of Positions", "Area of Selection", "Classification",
             "Education", "Process Number", "Title", "Close Date", "Number of Applications"];
 
+    var_estimates = ["Internal Process, Other Area of Selection",
+        "Internal Process, Public Servants in NCR",
+        "High school",
+        "Master's degree",
+        "Ph.D or above",
+        "Post-secondary",
+        "Professional degree",
+        "Some high school",
+        "Some post-secondary",
+        "education level unknown/not listed"];
+
 }else{
 
     // load_data parameters
@@ -60,6 +71,18 @@ if (document.documentElement.lang === "en") {
 
     headers = ["Organisation", "Langue",  "Région", "nombre de Postes", "Zone de sélection", "Classification",
         "Education", "Numéro de processus", "Titre", "Date de fermeture","Nombre de candidatures"];
+
+    var_estimates = ["Processus Interne, tous les fonctionnaires",
+        "Processus Interne, tous les fonctionnaires dans la RCN",
+        "Diplôme professionnel",
+        "Maîtrise",
+        "Ph.D ou plus",
+        "Quelque éducation post-secondaire",
+        "Quelque éducation secondaire",
+        "Éducation non listé",
+        "Éducation post-secondaire",
+        "Éducation secondaire"];
+
 
 }
 
